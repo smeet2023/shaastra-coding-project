@@ -1,0 +1,915 @@
+2024-10-24T15:36:56.522+05:30  INFO 15944 --- [sh-Shaastra-Coding] [main] c.s.demo.ShShaastraCodingApplication     : Starting ShShaastraCodingApplication using Java 21.0.4 with PID 15944 (F:\Hari - WorkSpace - 1\sh-Shaastra-Coding\target\classes started by Viral in F:\Hari - WorkSpace - 1\sh-Shaastra-Coding)
+2024-10-24T15:36:56.538+05:30  INFO 15944 --- [sh-Shaastra-Coding] [main] c.s.demo.ShShaastraCodingApplication     : No active profile set, falling back to 1 default profile: "default"
+2024-10-24T15:36:57.948+05:30  INFO 15944 --- [sh-Shaastra-Coding] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-24T15:36:58.074+05:30  INFO 15944 --- [sh-Shaastra-Coding] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 109 ms. Found 7 JPA repository interfaces.
+2024-10-24T15:36:59.295+05:30  INFO 15944 --- [sh-Shaastra-Coding] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-10-24T15:36:59.323+05:30  INFO 15944 --- [sh-Shaastra-Coding] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-10-24T15:36:59.323+05:30  INFO 15944 --- [sh-Shaastra-Coding] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-24T15:36:59.439+05:30  INFO 15944 --- [sh-Shaastra-Coding] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-10-24T15:36:59.440+05:30  INFO 15944 --- [sh-Shaastra-Coding] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2746 ms
+2024-10-24T15:36:59.677+05:30  INFO 15944 --- [sh-Shaastra-Coding] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-24T15:36:59.761+05:30  INFO 15944 --- [sh-Shaastra-Coding] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-10-24T15:36:59.820+05:30  INFO 15944 --- [sh-Shaastra-Coding] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-10-24T15:37:00.332+05:30  INFO 15944 --- [sh-Shaastra-Coding] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-24T15:37:00.391+05:30  INFO 15944 --- [sh-Shaastra-Coding] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-10-24T15:37:00.714+05:30  INFO 15944 --- [sh-Shaastra-Coding] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@350567f1
+2024-10-24T15:37:00.720+05:30  INFO 15944 --- [sh-Shaastra-Coding] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-10-24T15:37:00.806+05:30  WARN 15944 --- [sh-Shaastra-Coding] [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-10-24T15:37:02.546+05:30  INFO 15944 --- [sh-Shaastra-Coding] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-24T15:37:02.855+05:30  INFO 15944 --- [sh-Shaastra-Coding] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-24T15:37:03.559+05:30  WARN 15944 --- [sh-Shaastra-Coding] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-10-24T15:37:04.287+05:30  INFO 15944 --- [sh-Shaastra-Coding] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-10-24T15:37:04.298+05:30  INFO 15944 --- [sh-Shaastra-Coding] [main] c.s.demo.ShShaastraCodingApplication     : Started ShShaastraCodingApplication in 8.487 seconds (process running for 9.536)
+2024-10-24T15:37:46.022+05:30  INFO 15944 --- [sh-Shaastra-Coding] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-24T15:37:46.024+05:30  INFO 15944 --- [sh-Shaastra-Coding] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-10-24T15:37:46.032+05:30  INFO 15944 --- [sh-Shaastra-Coding] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 6 ms
+2024-10-24T15:37:47.531+05:30  INFO 15944 --- [sh-Shaastra-Coding] [http-nio-8080-exec-9] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 727 ms
+2024-10-24T15:40:57.342+05:30 DEBUG 15944 --- [sh-Shaastra-Coding] [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        c1_0.contest_id,
+        c1_0.contest_date,
+        c1_0.contest_description,
+        c1_0.contest_link,
+        c1_0.status,
+        c1_0.total_participants 
+    from
+        contests c1_0 
+    where
+        c1_0.contest_id=?
+2024-10-24T15:41:15.566+05:30 DEBUG 15944 --- [sh-Shaastra-Coding] [http-nio-8080-exec-8] org.hibernate.SQL                        : 
+    select
+        c1_0.contest_id,
+        c1_0.contest_date,
+        c1_0.contest_description,
+        c1_0.contest_link,
+        c1_0.status,
+        c1_0.total_participants 
+    from
+        contests c1_0
+2024-10-24T15:41:15.655+05:30 DEBUG 15944 --- [sh-Shaastra-Coding] [http-nio-8080-exec-8] org.hibernate.SQL                        : 
+    select
+        p1_0.contest_id,
+        p1_0.sh_id,
+        s1_0.sh_id,
+        s1_0.tp_id,
+        p1_0.tp_id 
+    from
+        contest_participants p1_0 
+    left join
+        shaastra s1_0 
+            on s1_0.sh_id=p1_0.sh_id 
+    where
+        p1_0.contest_id=?
+2024-10-24T15:41:15.751+05:30 DEBUG 15944 --- [sh-Shaastra-Coding] [http-nio-8080-exec-8] org.hibernate.SQL                        : 
+    select
+        cp1_0.contest_id,
+        cp1_1.contest_problem_id,
+        cp1_1.keywords,
+        cp1_1.problem_description,
+        cp1_1.problem_difficulty,
+        cp1_1.problem_solution,
+        cp1_1.problem_title 
+    from
+        contest_problem_join_table cp1_0 
+    join
+        contest_problem cp1_1 
+            on cp1_1.contest_problem_id=cp1_0.contest_problem_id 
+    where
+        cp1_0.contest_id=?
+2024-10-24T15:41:15.812+05:30 DEBUG 15944 --- [sh-Shaastra-Coding] [http-nio-8080-exec-8] org.hibernate.SQL                        : 
+    select
+        p1_0.contest_id,
+        p1_0.sh_id,
+        s1_0.sh_id,
+        s1_0.tp_id,
+        p1_0.tp_id 
+    from
+        contest_participants p1_0 
+    left join
+        shaastra s1_0 
+            on s1_0.sh_id=p1_0.sh_id 
+    where
+        p1_0.contest_id=?
+2024-10-24T15:41:15.816+05:30 DEBUG 15944 --- [sh-Shaastra-Coding] [http-nio-8080-exec-8] org.hibernate.SQL                        : 
+    select
+        cp1_0.contest_id,
+        cp1_1.contest_problem_id,
+        cp1_1.keywords,
+        cp1_1.problem_description,
+        cp1_1.problem_difficulty,
+        cp1_1.problem_solution,
+        cp1_1.problem_title 
+    from
+        contest_problem_join_table cp1_0 
+    join
+        contest_problem cp1_1 
+            on cp1_1.contest_problem_id=cp1_0.contest_problem_id 
+    where
+        cp1_0.contest_id=?
+2024-10-24T15:41:32.314+05:30 DEBUG 15944 --- [sh-Shaastra-Coding] [http-nio-8080-exec-7] org.hibernate.SQL                        : 
+    select
+        s1_0.erp_id,
+        s1_0.batch,
+        s1_0.branch,
+        s1_0.current_year,
+        s1_0.division,
+        s1_0.gsuite_email,
+        s1_0.personal_email,
+        s1_0.phone,
+        s1_0.tp_id 
+    from
+        students s1_0
+2024-10-24T15:41:39.232+05:30 DEBUG 15944 --- [sh-Shaastra-Coding] [http-nio-8080-exec-9] org.hibernate.SQL                        : 
+    select
+        s1_0.erp_id,
+        s1_0.batch,
+        s1_0.branch,
+        s1_0.current_year,
+        s1_0.division,
+        s1_0.gsuite_email,
+        s1_0.personal_email,
+        s1_0.phone,
+        s1_0.tp_id 
+    from
+        students s1_0
+2024-10-24T15:49:34.203+05:30  INFO 15944 --- [sh-Shaastra-Coding] [RMI TCP Connection(16)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2024-10-24T15:49:34.218+05:30  INFO 15944 --- [sh-Shaastra-Coding] [RMI TCP Connection(16)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-10-24T15:49:34.223+05:30  INFO 15944 --- [sh-Shaastra-Coding] [RMI TCP Connection(16)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-10-24T15:49:34.242+05:30  INFO 15944 --- [sh-Shaastra-Coding] [RMI TCP Connection(16)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-10-24T15:49:42.194+05:30  INFO 7456 --- [sh-Shaastra-Coding] [main] c.s.demo.ShShaastraCodingApplication     : Starting ShShaastraCodingApplication using Java 21.0.4 with PID 7456 (F:\Hari - WorkSpace - 1\sh-Shaastra-Coding\target\classes started by Viral in F:\Hari - WorkSpace - 1\sh-Shaastra-Coding)
+2024-10-24T15:49:42.197+05:30  INFO 7456 --- [sh-Shaastra-Coding] [main] c.s.demo.ShShaastraCodingApplication     : No active profile set, falling back to 1 default profile: "default"
+2024-10-24T15:49:43.228+05:30  INFO 7456 --- [sh-Shaastra-Coding] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-24T15:49:43.314+05:30  INFO 7456 --- [sh-Shaastra-Coding] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 72 ms. Found 7 JPA repository interfaces.
+2024-10-24T15:49:44.283+05:30  INFO 7456 --- [sh-Shaastra-Coding] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-10-24T15:49:44.310+05:30  INFO 7456 --- [sh-Shaastra-Coding] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-10-24T15:49:44.311+05:30  INFO 7456 --- [sh-Shaastra-Coding] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-24T15:49:44.413+05:30  INFO 7456 --- [sh-Shaastra-Coding] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-10-24T15:49:44.414+05:30  INFO 7456 --- [sh-Shaastra-Coding] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2113 ms
+2024-10-24T15:49:44.630+05:30  INFO 7456 --- [sh-Shaastra-Coding] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-24T15:49:44.712+05:30  INFO 7456 --- [sh-Shaastra-Coding] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-10-24T15:49:44.772+05:30  INFO 7456 --- [sh-Shaastra-Coding] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-10-24T15:49:45.222+05:30  INFO 7456 --- [sh-Shaastra-Coding] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-24T15:49:45.264+05:30  INFO 7456 --- [sh-Shaastra-Coding] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-10-24T15:49:45.499+05:30  INFO 7456 --- [sh-Shaastra-Coding] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@401ec794
+2024-10-24T15:49:45.503+05:30  INFO 7456 --- [sh-Shaastra-Coding] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-10-24T15:49:45.558+05:30  WARN 7456 --- [sh-Shaastra-Coding] [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-10-24T15:49:47.160+05:30  INFO 7456 --- [sh-Shaastra-Coding] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-24T15:49:47.280+05:30 DEBUG 7456 --- [sh-Shaastra-Coding] [main] org.hibernate.SQL                        : 
+    create table contest_participants (
+        sh_id varchar(255) not null,
+        contest_id integer not null,
+        tp_id bigint not null,
+        primary key (sh_id)
+    )
+2024-10-24T15:49:47.433+05:30 DEBUG 7456 --- [sh-Shaastra-Coding] [main] org.hibernate.SQL                        : 
+    create table contest_problem (
+        contest_problem_id integer generated by default as identity,
+        keywords varchar(255) array,
+        problem_description varchar(255) not null,
+        problem_difficulty varchar(255) not null,
+        problem_solution varchar(255) not null,
+        problem_title varchar(255) not null,
+        primary key (contest_problem_id)
+    )
+2024-10-24T15:49:47.565+05:30 DEBUG 7456 --- [sh-Shaastra-Coding] [main] org.hibernate.SQL                        : 
+    create table contest_problem_join_table (
+        contest_id integer not null,
+        contest_problem_id integer not null,
+        primary key (contest_id, contest_problem_id)
+    )
+2024-10-24T15:49:47.610+05:30 DEBUG 7456 --- [sh-Shaastra-Coding] [main] org.hibernate.SQL                        : 
+    create table contest_results (
+        id integer generated by default as identity,
+        rank_in_this_contest integer,
+        score INT DEFAULT 1,
+        contest_id integer not null,
+        sh_id varchar(255) not null,
+        primary key (id)
+    )
+2024-10-24T15:49:47.657+05:30 DEBUG 7456 --- [sh-Shaastra-Coding] [main] org.hibernate.SQL                        : 
+    create table contests (
+        contest_id integer generated by default as identity,
+        contest_date timestamp(6) with time zone,
+        contest_description varchar(255),
+        contest_link varchar(255),
+        status varchar(255),
+        total_participants integer,
+        primary key (contest_id)
+    )
+2024-10-24T15:49:47.746+05:30 DEBUG 7456 --- [sh-Shaastra-Coding] [main] org.hibernate.SQL                        : 
+    create table semester_record (
+        id integer generated by default as identity,
+        cgpa float(53),
+        current_year integer not null,
+        semester integer not null,
+        erp_id bigint not null,
+        primary key (id)
+    )
+2024-10-24T15:49:47.788+05:30 DEBUG 7456 --- [sh-Shaastra-Coding] [main] org.hibernate.SQL                        : 
+    create table shaastra (
+        sh_id varchar(255) not null,
+        tp_id bigint not null,
+        primary key (sh_id)
+    )
+2024-10-24T15:49:47.812+05:30 DEBUG 7456 --- [sh-Shaastra-Coding] [main] org.hibernate.SQL                        : 
+    create table students (
+        erp_id bigint not null,
+        batch varchar(255) not null,
+        branch varchar(255) not null,
+        current_year INT DEFAULT 1 not null,
+        division varchar(255) not null,
+        gsuite_email varchar(70) not null,
+        personal_email varchar(70) not null,
+        phone varchar(255) not null,
+        tp_id varchar(255) not null,
+        primary key (erp_id)
+    )
+2024-10-24T15:49:47.871+05:30 DEBUG 7456 --- [sh-Shaastra-Coding] [main] org.hibernate.SQL                        : 
+    alter table if exists contest_participants 
+       drop constraint if exists UK5lp62ylean5im0cfnr1gw4ki3
+2024-10-24T15:49:47.893+05:30  WARN 7456 --- [sh-Shaastra-Coding] [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-10-24T15:49:47.893+05:30  WARN 7456 --- [sh-Shaastra-Coding] [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : constraint "uk5lp62ylean5im0cfnr1gw4ki3" of relation "contest_participants" does not exist, skipping
+2024-10-24T15:49:47.894+05:30 DEBUG 7456 --- [sh-Shaastra-Coding] [main] org.hibernate.SQL                        : 
+    alter table if exists contest_participants 
+       add constraint UK5lp62ylean5im0cfnr1gw4ki3 unique (tp_id)
+2024-10-24T15:49:47.931+05:30 DEBUG 7456 --- [sh-Shaastra-Coding] [main] org.hibernate.SQL                        : 
+    alter table if exists contest_problem 
+       drop constraint if exists UKru0km1pgjt4553d1rjhvjf90h
+2024-10-24T15:49:47.933+05:30  WARN 7456 --- [sh-Shaastra-Coding] [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-10-24T15:49:47.938+05:30  WARN 7456 --- [sh-Shaastra-Coding] [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : constraint "ukru0km1pgjt4553d1rjhvjf90h" of relation "contest_problem" does not exist, skipping
+2024-10-24T15:49:47.939+05:30 DEBUG 7456 --- [sh-Shaastra-Coding] [main] org.hibernate.SQL                        : 
+    alter table if exists contest_problem 
+       add constraint UKru0km1pgjt4553d1rjhvjf90h unique (problem_solution)
+2024-10-24T15:49:47.975+05:30 DEBUG 7456 --- [sh-Shaastra-Coding] [main] org.hibernate.SQL                        : 
+    alter table if exists contest_problem 
+       drop constraint if exists UK1jlruq0isgbbx2kexjykdxmdj
+2024-10-24T15:49:47.977+05:30  WARN 7456 --- [sh-Shaastra-Coding] [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-10-24T15:49:47.977+05:30  WARN 7456 --- [sh-Shaastra-Coding] [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : constraint "uk1jlruq0isgbbx2kexjykdxmdj" of relation "contest_problem" does not exist, skipping
+2024-10-24T15:49:47.978+05:30 DEBUG 7456 --- [sh-Shaastra-Coding] [main] org.hibernate.SQL                        : 
+    alter table if exists contest_problem 
+       add constraint UK1jlruq0isgbbx2kexjykdxmdj unique (problem_title)
+2024-10-24T15:49:48.003+05:30 DEBUG 7456 --- [sh-Shaastra-Coding] [main] org.hibernate.SQL                        : 
+    alter table if exists contests 
+       drop constraint if exists UKpvank9q4lfjwr8oan589jv3ob
+2024-10-24T15:49:48.005+05:30  WARN 7456 --- [sh-Shaastra-Coding] [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-10-24T15:49:48.006+05:30  WARN 7456 --- [sh-Shaastra-Coding] [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : constraint "ukpvank9q4lfjwr8oan589jv3ob" of relation "contests" does not exist, skipping
+2024-10-24T15:49:48.006+05:30 DEBUG 7456 --- [sh-Shaastra-Coding] [main] org.hibernate.SQL                        : 
+    alter table if exists contests 
+       add constraint UKpvank9q4lfjwr8oan589jv3ob unique (contest_link)
+2024-10-24T15:49:48.042+05:30 DEBUG 7456 --- [sh-Shaastra-Coding] [main] org.hibernate.SQL                        : 
+    alter table if exists shaastra 
+       drop constraint if exists UKmt74ciaya9ypl41wuhmj8dsda
+2024-10-24T15:49:48.043+05:30  WARN 7456 --- [sh-Shaastra-Coding] [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-10-24T15:49:48.043+05:30  WARN 7456 --- [sh-Shaastra-Coding] [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : constraint "ukmt74ciaya9ypl41wuhmj8dsda" of relation "shaastra" does not exist, skipping
+2024-10-24T15:49:48.044+05:30 DEBUG 7456 --- [sh-Shaastra-Coding] [main] org.hibernate.SQL                        : 
+    alter table if exists shaastra 
+       add constraint UKmt74ciaya9ypl41wuhmj8dsda unique (tp_id)
+2024-10-24T15:49:48.070+05:30 DEBUG 7456 --- [sh-Shaastra-Coding] [main] org.hibernate.SQL                        : 
+    alter table if exists students 
+       drop constraint if exists UKf73gnf7fnu6jksde80qi0ynb8
+2024-10-24T15:49:48.072+05:30  WARN 7456 --- [sh-Shaastra-Coding] [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-10-24T15:49:48.072+05:30  WARN 7456 --- [sh-Shaastra-Coding] [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : constraint "ukf73gnf7fnu6jksde80qi0ynb8" of relation "students" does not exist, skipping
+2024-10-24T15:49:48.072+05:30 DEBUG 7456 --- [sh-Shaastra-Coding] [main] org.hibernate.SQL                        : 
+    alter table if exists students 
+       add constraint UKf73gnf7fnu6jksde80qi0ynb8 unique (erp_id, tp_id, personal_email, gsuite_email)
+2024-10-24T15:49:48.109+05:30 DEBUG 7456 --- [sh-Shaastra-Coding] [main] org.hibernate.SQL                        : 
+    alter table if exists contest_participants 
+       add constraint FKfa1r516lnwwiwkuu2ltijmwo1 
+       foreign key (contest_id) 
+       references contests
+2024-10-24T15:49:48.150+05:30 DEBUG 7456 --- [sh-Shaastra-Coding] [main] org.hibernate.SQL                        : 
+    alter table if exists contest_participants 
+       add constraint FKe233ut1wwgi2bvvfw1plds2dc 
+       foreign key (tp_id) 
+       references students
+2024-10-24T15:49:48.157+05:30 DEBUG 7456 --- [sh-Shaastra-Coding] [main] org.hibernate.SQL                        : 
+    alter table if exists contest_problem_join_table 
+       add constraint FK3tenysrvsdfkm2j0apj751uyt 
+       foreign key (contest_problem_id) 
+       references contest_problem
+2024-10-24T15:49:48.162+05:30 DEBUG 7456 --- [sh-Shaastra-Coding] [main] org.hibernate.SQL                        : 
+    alter table if exists contest_problem_join_table 
+       add constraint FK8srnfdto9tpk9rqf96nr3b106 
+       foreign key (contest_id) 
+       references contests
+2024-10-24T15:49:48.166+05:30 DEBUG 7456 --- [sh-Shaastra-Coding] [main] org.hibernate.SQL                        : 
+    alter table if exists contest_results 
+       add constraint FK600xmpwmqf4lwjbq9qbetgqx7 
+       foreign key (contest_id) 
+       references contests
+2024-10-24T15:49:48.184+05:30 DEBUG 7456 --- [sh-Shaastra-Coding] [main] org.hibernate.SQL                        : 
+    alter table if exists contest_results 
+       add constraint FKxvuw3eaqn5io2sq2ac2pok4x 
+       foreign key (sh_id) 
+       references contest_participants
+2024-10-24T15:49:48.190+05:30 DEBUG 7456 --- [sh-Shaastra-Coding] [main] org.hibernate.SQL                        : 
+    alter table if exists semester_record 
+       add constraint FK9qea7o28gq6q0h1fve2re9m9i 
+       foreign key (erp_id) 
+       references students
+2024-10-24T15:49:48.193+05:30 DEBUG 7456 --- [sh-Shaastra-Coding] [main] org.hibernate.SQL                        : 
+    alter table if exists shaastra 
+       add constraint FKmvr98xwi546p9vwi2krypwq35 
+       foreign key (tp_id) 
+       references students
+2024-10-24T15:49:48.199+05:30  INFO 7456 --- [sh-Shaastra-Coding] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-24T15:49:48.987+05:30  WARN 7456 --- [sh-Shaastra-Coding] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-10-24T15:49:49.612+05:30  INFO 7456 --- [sh-Shaastra-Coding] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-10-24T15:49:49.626+05:30  INFO 7456 --- [sh-Shaastra-Coding] [main] c.s.demo.ShShaastraCodingApplication     : Started ShShaastraCodingApplication in 8.001 seconds (process running for 8.984)
+2024-10-24T19:30:41.941+05:30  INFO 5432 --- [sh-Shaastra-Coding] [main] c.s.demo.ShShaastraCodingApplication     : Starting ShShaastraCodingApplication using Java 21.0.4 with PID 5432 (F:\Hari - WorkSpace - 1\sh-Shaastra-Coding3\target\classes started by Viral in F:\Hari - WorkSpace - 1\sh-Shaastra-Coding3)
+2024-10-24T19:30:41.951+05:30  INFO 5432 --- [sh-Shaastra-Coding] [main] c.s.demo.ShShaastraCodingApplication     : No active profile set, falling back to 1 default profile: "default"
+2024-10-24T19:30:42.962+05:30  INFO 5432 --- [sh-Shaastra-Coding] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-24T19:30:43.073+05:30  INFO 5432 --- [sh-Shaastra-Coding] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 95 ms. Found 7 JPA repository interfaces.
+2024-10-24T19:30:44.104+05:30  INFO 5432 --- [sh-Shaastra-Coding] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-10-24T19:30:44.124+05:30  INFO 5432 --- [sh-Shaastra-Coding] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-10-24T19:30:44.125+05:30  INFO 5432 --- [sh-Shaastra-Coding] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-24T19:30:44.233+05:30  INFO 5432 --- [sh-Shaastra-Coding] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-10-24T19:30:44.234+05:30  INFO 5432 --- [sh-Shaastra-Coding] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2112 ms
+2024-10-24T19:30:44.500+05:30  INFO 5432 --- [sh-Shaastra-Coding] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-24T19:30:44.591+05:30  INFO 5432 --- [sh-Shaastra-Coding] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-10-24T19:30:44.655+05:30  INFO 5432 --- [sh-Shaastra-Coding] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-10-24T19:30:45.065+05:30  INFO 5432 --- [sh-Shaastra-Coding] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-24T19:30:45.112+05:30  INFO 5432 --- [sh-Shaastra-Coding] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-10-24T19:30:45.355+05:30  INFO 5432 --- [sh-Shaastra-Coding] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@44492c06
+2024-10-24T19:30:45.357+05:30  INFO 5432 --- [sh-Shaastra-Coding] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-10-24T19:30:45.412+05:30  WARN 5432 --- [sh-Shaastra-Coding] [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-10-24T19:30:47.004+05:30  INFO 5432 --- [sh-Shaastra-Coding] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-24T19:30:47.207+05:30  INFO 5432 --- [sh-Shaastra-Coding] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-24T19:30:47.810+05:30  WARN 5432 --- [sh-Shaastra-Coding] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-10-24T19:30:48.411+05:30  INFO 5432 --- [sh-Shaastra-Coding] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-10-24T19:30:48.431+05:30  INFO 5432 --- [sh-Shaastra-Coding] [main] c.s.demo.ShShaastraCodingApplication     : Started ShShaastraCodingApplication in 7.103 seconds (process running for 21.841)
+2024-10-24T19:48:31.100+05:30  INFO 5432 --- [sh-Shaastra-Coding] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-24T19:48:31.101+05:30  INFO 5432 --- [sh-Shaastra-Coding] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-10-24T19:48:31.111+05:30  INFO 5432 --- [sh-Shaastra-Coding] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 9 ms
+2024-10-24T19:48:32.216+05:30 DEBUG 5432 --- [sh-Shaastra-Coding] [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    insert 
+    into
+        contests
+        (contest_date, contest_description, contest_link, status, total_participants) 
+    values
+        (?, ?, ?, ?, ?) 
+    returning contest_id
+2024-10-24T19:48:32.413+05:30 ERROR 5432 --- [sh-Shaastra-Coding] [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.dao.InvalidDataAccessApiUsageException: org.hibernate.TransientObjectException: object references an unsaved transient instance - save the transient instance before flushing: com.shaastra.entities.ContestProblem] with root cause
+
+org.hibernate.TransientObjectException: object references an unsaved transient instance - save the transient instance before flushing: com.shaastra.entities.ContestProblem
+	at org.hibernate.metamodel.mapping.EntityIdentifierMapping.getIdentifierIfNotUnsaved(EntityIdentifierMapping.java:106) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.metamodel.mapping.internal.SimpleForeignKeyDescriptor.getAssociationKeyFromSide(SimpleForeignKeyDescriptor.java:498) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.metamodel.mapping.internal.ManyToManyCollectionPart.decompose(ManyToManyCollectionPart.java:205) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.persister.collection.BasicCollectionPersister.applyInsertRowValues(BasicCollectionPersister.java:450) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.persister.collection.mutation.InsertRowsCoordinatorStandard.insertRows(InsertRowsCoordinatorStandard.java:109) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.persister.collection.BasicCollectionPersister.recreate(BasicCollectionPersister.java:119) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.action.internal.CollectionRecreateAction.execute(CollectionRecreateAction.java:47) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:633) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:500) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.event.internal.AbstractFlushingEventListener.performExecutions(AbstractFlushingEventListener.java:385) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.event.internal.DefaultFlushEventListener.onFlush(DefaultFlushEventListener.java:41) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:127) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.internal.SessionImpl.doFlush(SessionImpl.java:1425) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.internal.SessionImpl.managedFlush(SessionImpl.java:487) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.internal.SessionImpl.flushBeforeTransactionCompletion(SessionImpl.java:2324) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.internal.SessionImpl.beforeTransactionCompletion(SessionImpl.java:1981) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.engine.jdbc.internal.JdbcCoordinatorImpl.beforeTransactionCompletion(JdbcCoordinatorImpl.java:439) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl.beforeCompletionCallback(JdbcResourceLocalTransactionCoordinatorImpl.java:169) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl$TransactionDriverControlImpl.commit(JdbcResourceLocalTransactionCoordinatorImpl.java:267) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.engine.transaction.internal.TransactionImpl.commit(TransactionImpl.java:101) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.springframework.orm.jpa.JpaTransactionManager.doCommit(JpaTransactionManager.java:562) ~[spring-orm-6.1.13.jar:6.1.13]
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.processCommit(AbstractPlatformTransactionManager.java:795) ~[spring-tx-6.1.13.jar:6.1.13]
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.commit(AbstractPlatformTransactionManager.java:758) ~[spring-tx-6.1.13.jar:6.1.13]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.commitTransactionAfterReturning(TransactionAspectSupport.java:663) ~[spring-tx-6.1.13.jar:6.1.13]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:413) ~[spring-tx-6.1.13.jar:6.1.13]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-6.1.13.jar:6.1.13]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.13.jar:6.1.13]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:138) ~[spring-tx-6.1.13.jar:6.1.13]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.13.jar:6.1.13]
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:165) ~[spring-data-jpa-3.3.4.jar:3.3.4]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.13.jar:6.1.13]
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97) ~[spring-aop-6.1.13.jar:6.1.13]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.13.jar:6.1.13]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223) ~[spring-aop-6.1.13.jar:6.1.13]
+	at jdk.proxy2/jdk.proxy2.$Proxy140.save(Unknown Source) ~[na:na]
+	at com.shaastra.controllers.ContestController.createContest(ContestController.java:58) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:255) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:188) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:926) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:831) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590) ~[tomcat-embed-core-10.1.30.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.30.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:384) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+
+2024-10-24T19:48:54.146+05:30 DEBUG 5432 --- [sh-Shaastra-Coding] [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    insert 
+    into
+        contests
+        (contest_date, contest_description, contest_link, status, total_participants) 
+    values
+        (?, ?, ?, ?, ?) 
+    returning contest_id
+2024-10-24T19:48:54.160+05:30 ERROR 5432 --- [sh-Shaastra-Coding] [http-nio-8080-exec-4] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.dao.InvalidDataAccessApiUsageException: org.hibernate.TransientObjectException: object references an unsaved transient instance - save the transient instance before flushing: com.shaastra.entities.ContestProblem] with root cause
+
+org.hibernate.TransientObjectException: object references an unsaved transient instance - save the transient instance before flushing: com.shaastra.entities.ContestProblem
+	at org.hibernate.metamodel.mapping.EntityIdentifierMapping.getIdentifierIfNotUnsaved(EntityIdentifierMapping.java:106) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.metamodel.mapping.internal.SimpleForeignKeyDescriptor.getAssociationKeyFromSide(SimpleForeignKeyDescriptor.java:498) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.metamodel.mapping.internal.ManyToManyCollectionPart.decompose(ManyToManyCollectionPart.java:205) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.persister.collection.BasicCollectionPersister.applyInsertRowValues(BasicCollectionPersister.java:450) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.persister.collection.mutation.InsertRowsCoordinatorStandard.insertRows(InsertRowsCoordinatorStandard.java:109) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.persister.collection.BasicCollectionPersister.recreate(BasicCollectionPersister.java:119) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.action.internal.CollectionRecreateAction.execute(CollectionRecreateAction.java:47) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:633) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:500) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.event.internal.AbstractFlushingEventListener.performExecutions(AbstractFlushingEventListener.java:385) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.event.internal.DefaultFlushEventListener.onFlush(DefaultFlushEventListener.java:41) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:127) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.internal.SessionImpl.doFlush(SessionImpl.java:1425) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.internal.SessionImpl.managedFlush(SessionImpl.java:487) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.internal.SessionImpl.flushBeforeTransactionCompletion(SessionImpl.java:2324) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.internal.SessionImpl.beforeTransactionCompletion(SessionImpl.java:1981) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.engine.jdbc.internal.JdbcCoordinatorImpl.beforeTransactionCompletion(JdbcCoordinatorImpl.java:439) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl.beforeCompletionCallback(JdbcResourceLocalTransactionCoordinatorImpl.java:169) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl$TransactionDriverControlImpl.commit(JdbcResourceLocalTransactionCoordinatorImpl.java:267) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.engine.transaction.internal.TransactionImpl.commit(TransactionImpl.java:101) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.springframework.orm.jpa.JpaTransactionManager.doCommit(JpaTransactionManager.java:562) ~[spring-orm-6.1.13.jar:6.1.13]
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.processCommit(AbstractPlatformTransactionManager.java:795) ~[spring-tx-6.1.13.jar:6.1.13]
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.commit(AbstractPlatformTransactionManager.java:758) ~[spring-tx-6.1.13.jar:6.1.13]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.commitTransactionAfterReturning(TransactionAspectSupport.java:663) ~[spring-tx-6.1.13.jar:6.1.13]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:413) ~[spring-tx-6.1.13.jar:6.1.13]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-6.1.13.jar:6.1.13]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.13.jar:6.1.13]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:138) ~[spring-tx-6.1.13.jar:6.1.13]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.13.jar:6.1.13]
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:165) ~[spring-data-jpa-3.3.4.jar:3.3.4]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.13.jar:6.1.13]
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97) ~[spring-aop-6.1.13.jar:6.1.13]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.13.jar:6.1.13]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223) ~[spring-aop-6.1.13.jar:6.1.13]
+	at jdk.proxy2/jdk.proxy2.$Proxy140.save(Unknown Source) ~[na:na]
+	at com.shaastra.controllers.ContestController.createContest(ContestController.java:58) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:255) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:188) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:926) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:831) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590) ~[tomcat-embed-core-10.1.30.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.1.13.jar:6.1.13]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.30.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.13.jar:6.1.13]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:384) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.30.jar:10.1.30]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+
+2024-10-24T19:54:18.720+05:30 DEBUG 5432 --- [sh-Shaastra-Coding] [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    select
+        c1_0.contest_id,
+        c1_0.contest_date,
+        c1_0.contest_description,
+        c1_0.contest_link,
+        c1_0.status,
+        c1_0.total_participants 
+    from
+        contests c1_0
+2024-10-24T19:57:42.163+05:30  INFO 5432 --- [sh-Shaastra-Coding] [RMI TCP Connection(30)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2024-10-24T19:57:42.178+05:30  INFO 5432 --- [sh-Shaastra-Coding] [RMI TCP Connection(30)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-10-24T19:57:42.181+05:30  INFO 5432 --- [sh-Shaastra-Coding] [RMI TCP Connection(30)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-10-24T19:57:42.197+05:30  INFO 5432 --- [sh-Shaastra-Coding] [RMI TCP Connection(30)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-10-24T19:57:58.974+05:30  INFO 8920 --- [sh-Shaastra-Coding] [main] c.s.demo.ShShaastraCodingApplication     : Starting ShShaastraCodingApplication using Java 21.0.4 with PID 8920 (F:\Hari - WorkSpace - 1\sh-Shaastra-Coding3\target\classes started by Viral in F:\Hari - WorkSpace - 1\sh-Shaastra-Coding3)
+2024-10-24T19:57:58.977+05:30  INFO 8920 --- [sh-Shaastra-Coding] [main] c.s.demo.ShShaastraCodingApplication     : No active profile set, falling back to 1 default profile: "default"
+2024-10-24T19:58:00.080+05:30  INFO 8920 --- [sh-Shaastra-Coding] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-24T19:58:00.176+05:30  INFO 8920 --- [sh-Shaastra-Coding] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 79 ms. Found 7 JPA repository interfaces.
+2024-10-24T19:58:01.170+05:30  INFO 8920 --- [sh-Shaastra-Coding] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-10-24T19:58:01.193+05:30  INFO 8920 --- [sh-Shaastra-Coding] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-10-24T19:58:01.193+05:30  INFO 8920 --- [sh-Shaastra-Coding] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-24T19:58:01.297+05:30  INFO 8920 --- [sh-Shaastra-Coding] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-10-24T19:58:01.297+05:30  INFO 8920 --- [sh-Shaastra-Coding] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2196 ms
+2024-10-24T19:58:01.513+05:30  INFO 8920 --- [sh-Shaastra-Coding] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-24T19:58:01.591+05:30  INFO 8920 --- [sh-Shaastra-Coding] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-10-24T19:58:01.643+05:30  INFO 8920 --- [sh-Shaastra-Coding] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-10-24T19:58:02.039+05:30  INFO 8920 --- [sh-Shaastra-Coding] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-24T19:58:02.083+05:30  INFO 8920 --- [sh-Shaastra-Coding] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-10-24T19:58:02.323+05:30  INFO 8920 --- [sh-Shaastra-Coding] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@1224e1b6
+2024-10-24T19:58:02.326+05:30  INFO 8920 --- [sh-Shaastra-Coding] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-10-24T19:58:02.378+05:30  WARN 8920 --- [sh-Shaastra-Coding] [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-10-24T19:58:03.955+05:30  INFO 8920 --- [sh-Shaastra-Coding] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-24T19:58:04.159+05:30  INFO 8920 --- [sh-Shaastra-Coding] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-24T19:58:04.759+05:30  WARN 8920 --- [sh-Shaastra-Coding] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-10-24T19:58:05.356+05:30  INFO 8920 --- [sh-Shaastra-Coding] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-10-24T19:58:05.369+05:30  INFO 8920 --- [sh-Shaastra-Coding] [main] c.s.demo.ShShaastraCodingApplication     : Started ShShaastraCodingApplication in 6.926 seconds (process running for 7.89)
+2024-10-24T19:59:18.498+05:30  INFO 8920 --- [sh-Shaastra-Coding] [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-24T19:59:18.499+05:30  INFO 8920 --- [sh-Shaastra-Coding] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-10-24T19:59:18.511+05:30  INFO 8920 --- [sh-Shaastra-Coding] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 12 ms
+2024-10-24T19:59:19.253+05:30 DEBUG 8920 --- [sh-Shaastra-Coding] [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        cp1_0.contest_problem_id,
+        cp1_0.keywords,
+        cp1_0.problem_description,
+        cp1_0.problem_difficulty,
+        cp1_0.problem_solution,
+        cp1_0.problem_title 
+    from
+        contest_problem cp1_0 
+    where
+        cp1_0.contest_problem_id=?
+2024-10-24T19:59:19.516+05:30 DEBUG 8920 --- [sh-Shaastra-Coding] [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    insert 
+    into
+        contest_problem
+        (keywords, problem_description, problem_difficulty, problem_solution, problem_title) 
+    values
+        (?, ?, ?, ?, ?) 
+    returning contest_problem_id
+2024-10-24T19:59:19.630+05:30 DEBUG 8920 --- [sh-Shaastra-Coding] [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    insert 
+    into
+        contests
+        (contest_date, contest_description, contest_link, status, total_participants) 
+    values
+        (?, ?, ?, ?, ?) 
+    returning contest_id
+2024-10-24T19:59:19.652+05:30 DEBUG 8920 --- [sh-Shaastra-Coding] [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    insert 
+    into
+        contest_problem_join_table
+        (contest_id, contest_problem_id) 
+    values
+        (?, ?)
+2024-10-24T19:59:19.732+05:30 DEBUG 8920 --- [sh-Shaastra-Coding] [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    insert 
+    into
+        contest_problem_join_table
+        (contest_id, contest_problem_id) 
+    values
+        (?, ?)
+2024-10-24T21:40:15.806+05:30  INFO 8920 --- [sh-Shaastra-Coding] [RMI TCP Connection(106)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2024-10-24T21:40:15.822+05:30  INFO 8920 --- [sh-Shaastra-Coding] [RMI TCP Connection(106)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-10-24T21:40:15.824+05:30  INFO 8920 --- [sh-Shaastra-Coding] [RMI TCP Connection(106)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-10-24T21:40:15.837+05:30  INFO 8920 --- [sh-Shaastra-Coding] [RMI TCP Connection(106)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-10-24T21:54:04.429+05:30  INFO 8956 --- [sh-Shaastra-Coding] [main] c.s.demo.ShShaastraCodingApplication     : Starting ShShaastraCodingApplication using Java 21.0.4 with PID 8956 (F:\Hari - WorkSpace - 1\sh-Shaastra-Coding3\target\classes started by Viral in F:\Hari - WorkSpace - 1\sh-Shaastra-Coding3)
+2024-10-24T21:54:04.440+05:30  INFO 8956 --- [sh-Shaastra-Coding] [main] c.s.demo.ShShaastraCodingApplication     : No active profile set, falling back to 1 default profile: "default"
+2024-10-24T21:54:05.661+05:30  INFO 8956 --- [sh-Shaastra-Coding] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-24T21:54:05.752+05:30  INFO 8956 --- [sh-Shaastra-Coding] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 78 ms. Found 7 JPA repository interfaces.
+2024-10-24T21:54:06.757+05:30  INFO 8956 --- [sh-Shaastra-Coding] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-10-24T21:54:06.777+05:30  INFO 8956 --- [sh-Shaastra-Coding] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-10-24T21:54:06.778+05:30  INFO 8956 --- [sh-Shaastra-Coding] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-24T21:54:06.887+05:30  INFO 8956 --- [sh-Shaastra-Coding] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-10-24T21:54:06.888+05:30  INFO 8956 --- [sh-Shaastra-Coding] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2232 ms
+2024-10-24T21:54:07.110+05:30  INFO 8956 --- [sh-Shaastra-Coding] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-24T21:54:07.219+05:30  INFO 8956 --- [sh-Shaastra-Coding] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-10-24T21:54:07.293+05:30  INFO 8956 --- [sh-Shaastra-Coding] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-10-24T21:54:07.712+05:30  INFO 8956 --- [sh-Shaastra-Coding] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-24T21:54:07.768+05:30  INFO 8956 --- [sh-Shaastra-Coding] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-10-24T21:54:08.005+05:30  INFO 8956 --- [sh-Shaastra-Coding] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@72a3462f
+2024-10-24T21:54:08.007+05:30  INFO 8956 --- [sh-Shaastra-Coding] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-10-24T21:54:08.059+05:30  WARN 8956 --- [sh-Shaastra-Coding] [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-10-24T21:54:09.669+05:30  INFO 8956 --- [sh-Shaastra-Coding] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-24T21:54:09.874+05:30  INFO 8956 --- [sh-Shaastra-Coding] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-24T21:54:10.477+05:30  WARN 8956 --- [sh-Shaastra-Coding] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-10-24T21:54:11.086+05:30  INFO 8956 --- [sh-Shaastra-Coding] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-10-24T21:54:11.101+05:30  INFO 8956 --- [sh-Shaastra-Coding] [main] c.s.demo.ShShaastraCodingApplication     : Started ShShaastraCodingApplication in 7.294 seconds (process running for 8.294)
+2024-10-24T21:56:48.419+05:30  INFO 8956 --- [sh-Shaastra-Coding] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-24T21:56:48.420+05:30  INFO 8956 --- [sh-Shaastra-Coding] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-10-24T21:56:48.423+05:30  INFO 8956 --- [sh-Shaastra-Coding] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2024-10-24T21:56:48.818+05:30 DEBUG 8956 --- [sh-Shaastra-Coding] [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        c1_0.contest_id,
+        c1_0.contest_date,
+        c1_0.contest_description,
+        c1_0.contest_link,
+        c1_0.status,
+        c1_0.total_participants 
+    from
+        contests c1_0 
+    where
+        c1_0.contest_id=?
+2024-10-24T21:56:48.954+05:30 DEBUG 8956 --- [sh-Shaastra-Coding] [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    update
+        contests 
+    set
+        contest_date=?,
+        contest_description=?,
+        contest_link=?,
+        status=?,
+        total_participants=? 
+    where
+        contest_id=?
+2024-10-24T23:14:35.919+05:30  INFO 8956 --- [sh-Shaastra-Coding] [RMI TCP Connection(84)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2024-10-24T23:14:35.941+05:30  INFO 8956 --- [sh-Shaastra-Coding] [RMI TCP Connection(84)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-10-24T23:14:35.943+05:30  INFO 8956 --- [sh-Shaastra-Coding] [RMI TCP Connection(84)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-10-24T23:14:35.959+05:30  INFO 8956 --- [sh-Shaastra-Coding] [RMI TCP Connection(84)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-10-24T23:14:40.012+05:30  INFO 2428 --- [sh-Shaastra-Coding] [main] c.s.demo.ShShaastraCodingApplication     : Starting ShShaastraCodingApplication using Java 21.0.4 with PID 2428 (F:\Hari - WorkSpace - 1\sh-Shaastra-Coding3\target\classes started by Viral in F:\Hari - WorkSpace - 1\sh-Shaastra-Coding3)
+2024-10-24T23:14:40.015+05:30  INFO 2428 --- [sh-Shaastra-Coding] [main] c.s.demo.ShShaastraCodingApplication     : No active profile set, falling back to 1 default profile: "default"
+2024-10-24T23:14:40.889+05:30  INFO 2428 --- [sh-Shaastra-Coding] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-24T23:14:40.991+05:30  INFO 2428 --- [sh-Shaastra-Coding] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 91 ms. Found 7 JPA repository interfaces.
+2024-10-24T23:14:42.368+05:30  INFO 2428 --- [sh-Shaastra-Coding] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-10-24T23:14:42.392+05:30  INFO 2428 --- [sh-Shaastra-Coding] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-10-24T23:14:42.393+05:30  INFO 2428 --- [sh-Shaastra-Coding] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-24T23:14:42.490+05:30  INFO 2428 --- [sh-Shaastra-Coding] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-10-24T23:14:42.491+05:30  INFO 2428 --- [sh-Shaastra-Coding] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2359 ms
+2024-10-24T23:14:42.712+05:30  INFO 2428 --- [sh-Shaastra-Coding] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-24T23:14:42.797+05:30  INFO 2428 --- [sh-Shaastra-Coding] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-10-24T23:14:42.851+05:30  INFO 2428 --- [sh-Shaastra-Coding] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-10-24T23:14:43.276+05:30  INFO 2428 --- [sh-Shaastra-Coding] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-24T23:14:43.331+05:30  INFO 2428 --- [sh-Shaastra-Coding] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-10-24T23:14:43.613+05:30  INFO 2428 --- [sh-Shaastra-Coding] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@794cb26b
+2024-10-24T23:14:43.616+05:30  INFO 2428 --- [sh-Shaastra-Coding] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-10-24T23:14:43.677+05:30  WARN 2428 --- [sh-Shaastra-Coding] [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-10-24T23:14:45.230+05:30  INFO 2428 --- [sh-Shaastra-Coding] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-24T23:14:45.483+05:30  INFO 2428 --- [sh-Shaastra-Coding] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-24T23:14:46.084+05:30  WARN 2428 --- [sh-Shaastra-Coding] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-10-24T23:14:46.696+05:30  INFO 2428 --- [sh-Shaastra-Coding] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-10-24T23:14:46.710+05:30  INFO 2428 --- [sh-Shaastra-Coding] [main] c.s.demo.ShShaastraCodingApplication     : Started ShShaastraCodingApplication in 7.288 seconds (process running for 8.226)
+2024-10-24T23:14:55.041+05:30  INFO 2428 --- [sh-Shaastra-Coding] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-24T23:14:55.042+05:30  INFO 2428 --- [sh-Shaastra-Coding] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-10-24T23:14:55.045+05:30  INFO 2428 --- [sh-Shaastra-Coding] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2024-10-24T23:14:56.172+05:30  INFO 2428 --- [sh-Shaastra-Coding] [http-nio-8080-exec-9] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 550 ms
+2024-10-24T23:17:23.104+05:30  INFO 2428 --- [sh-Shaastra-Coding] [RMI TCP Connection(6)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2024-10-24T23:17:23.122+05:30  INFO 2428 --- [sh-Shaastra-Coding] [RMI TCP Connection(6)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-10-24T23:17:23.125+05:30  INFO 2428 --- [sh-Shaastra-Coding] [RMI TCP Connection(6)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-10-24T23:17:23.143+05:30  INFO 2428 --- [sh-Shaastra-Coding] [RMI TCP Connection(6)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-10-24T23:18:26.881+05:30  INFO 13428 --- [sh-Shaastra-Coding] [main] c.s.demo.ShShaastraCodingApplication     : Starting ShShaastraCodingApplication using Java 21.0.4 with PID 13428 (F:\Hari - WorkSpace - 1\sh-Shaastra-Coding3\target\classes started by Viral in F:\Hari - WorkSpace - 1\sh-Shaastra-Coding3)
+2024-10-24T23:18:26.887+05:30  INFO 13428 --- [sh-Shaastra-Coding] [main] c.s.demo.ShShaastraCodingApplication     : No active profile set, falling back to 1 default profile: "default"
+2024-10-24T23:18:27.857+05:30  INFO 13428 --- [sh-Shaastra-Coding] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-24T23:18:27.944+05:30  INFO 13428 --- [sh-Shaastra-Coding] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 73 ms. Found 7 JPA repository interfaces.
+2024-10-24T23:18:28.936+05:30  INFO 13428 --- [sh-Shaastra-Coding] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-10-24T23:18:28.960+05:30  INFO 13428 --- [sh-Shaastra-Coding] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-10-24T23:18:28.961+05:30  INFO 13428 --- [sh-Shaastra-Coding] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-24T23:18:29.069+05:30  INFO 13428 --- [sh-Shaastra-Coding] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-10-24T23:18:29.070+05:30  INFO 13428 --- [sh-Shaastra-Coding] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2078 ms
+2024-10-24T23:18:29.282+05:30  INFO 13428 --- [sh-Shaastra-Coding] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-24T23:18:29.360+05:30  INFO 13428 --- [sh-Shaastra-Coding] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-10-24T23:18:29.411+05:30  INFO 13428 --- [sh-Shaastra-Coding] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-10-24T23:18:29.835+05:30  INFO 13428 --- [sh-Shaastra-Coding] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-24T23:18:29.890+05:30  INFO 13428 --- [sh-Shaastra-Coding] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-10-24T23:18:30.122+05:30  INFO 13428 --- [sh-Shaastra-Coding] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@aa0dbca
+2024-10-24T23:18:30.125+05:30  INFO 13428 --- [sh-Shaastra-Coding] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-10-24T23:18:30.178+05:30  WARN 13428 --- [sh-Shaastra-Coding] [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-10-24T23:18:31.707+05:30  INFO 13428 --- [sh-Shaastra-Coding] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-24T23:18:31.907+05:30  INFO 13428 --- [sh-Shaastra-Coding] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-24T23:18:32.509+05:30  WARN 13428 --- [sh-Shaastra-Coding] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-10-24T23:18:33.136+05:30  INFO 13428 --- [sh-Shaastra-Coding] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-10-24T23:18:33.147+05:30  INFO 13428 --- [sh-Shaastra-Coding] [main] c.s.demo.ShShaastraCodingApplication     : Started ShShaastraCodingApplication in 6.82 seconds (process running for 7.69)
+2024-10-24T23:18:38.970+05:30  INFO 13428 --- [sh-Shaastra-Coding] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-24T23:18:38.971+05:30  INFO 13428 --- [sh-Shaastra-Coding] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-10-24T23:18:38.973+05:30  INFO 13428 --- [sh-Shaastra-Coding] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2024-10-24T23:18:40.221+05:30  INFO 13428 --- [sh-Shaastra-Coding] [http-nio-8080-exec-6] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 565 ms
+2024-10-24T23:20:05.763+05:30  INFO 13428 --- [sh-Shaastra-Coding] [RMI TCP Connection(4)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2024-10-24T23:20:05.780+05:30  INFO 13428 --- [sh-Shaastra-Coding] [RMI TCP Connection(4)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-10-24T23:20:05.783+05:30  INFO 13428 --- [sh-Shaastra-Coding] [RMI TCP Connection(4)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-10-24T23:20:05.804+05:30  INFO 13428 --- [sh-Shaastra-Coding] [RMI TCP Connection(4)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-10-24T23:20:08.950+05:30  INFO 14348 --- [sh-Shaastra-Coding] [main] c.s.demo.ShShaastraCodingApplication     : Starting ShShaastraCodingApplication using Java 21.0.4 with PID 14348 (F:\Hari - WorkSpace - 1\sh-Shaastra-Coding3\target\classes started by Viral in F:\Hari - WorkSpace - 1\sh-Shaastra-Coding3)
+2024-10-24T23:20:08.953+05:30  INFO 14348 --- [sh-Shaastra-Coding] [main] c.s.demo.ShShaastraCodingApplication     : No active profile set, falling back to 1 default profile: "default"
+2024-10-24T23:20:09.849+05:30  INFO 14348 --- [sh-Shaastra-Coding] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-24T23:20:09.936+05:30  INFO 14348 --- [sh-Shaastra-Coding] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 74 ms. Found 7 JPA repository interfaces.
+2024-10-24T23:20:11.002+05:30  INFO 14348 --- [sh-Shaastra-Coding] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-10-24T23:20:11.028+05:30  INFO 14348 --- [sh-Shaastra-Coding] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-10-24T23:20:11.029+05:30  INFO 14348 --- [sh-Shaastra-Coding] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-24T23:20:11.134+05:30  INFO 14348 --- [sh-Shaastra-Coding] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-10-24T23:20:11.135+05:30  INFO 14348 --- [sh-Shaastra-Coding] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2074 ms
+2024-10-24T23:20:11.355+05:30  INFO 14348 --- [sh-Shaastra-Coding] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-24T23:20:11.438+05:30  INFO 14348 --- [sh-Shaastra-Coding] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-10-24T23:20:11.518+05:30  INFO 14348 --- [sh-Shaastra-Coding] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-10-24T23:20:11.930+05:30  INFO 14348 --- [sh-Shaastra-Coding] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-24T23:20:11.972+05:30  INFO 14348 --- [sh-Shaastra-Coding] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-10-24T23:20:12.215+05:30  INFO 14348 --- [sh-Shaastra-Coding] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@56b05bd7
+2024-10-24T23:20:12.217+05:30  INFO 14348 --- [sh-Shaastra-Coding] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-10-24T23:20:12.272+05:30  WARN 14348 --- [sh-Shaastra-Coding] [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-10-24T23:20:13.947+05:30  INFO 14348 --- [sh-Shaastra-Coding] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-24T23:20:14.154+05:30  INFO 14348 --- [sh-Shaastra-Coding] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-24T23:20:14.851+05:30  WARN 14348 --- [sh-Shaastra-Coding] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-10-24T23:20:15.455+05:30  INFO 14348 --- [sh-Shaastra-Coding] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-10-24T23:20:15.471+05:30  INFO 14348 --- [sh-Shaastra-Coding] [main] c.s.demo.ShShaastraCodingApplication     : Started ShShaastraCodingApplication in 7.173 seconds (process running for 8.14)
+2024-10-24T23:20:18.388+05:30  INFO 14348 --- [sh-Shaastra-Coding] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-24T23:20:18.388+05:30  INFO 14348 --- [sh-Shaastra-Coding] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-10-24T23:20:18.394+05:30  INFO 14348 --- [sh-Shaastra-Coding] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 6 ms
+2024-10-24T23:20:19.228+05:30  INFO 14348 --- [sh-Shaastra-Coding] [http-nio-8080-exec-4] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 515 ms
+2024-10-24T23:24:20.588+05:30  INFO 14348 --- [sh-Shaastra-Coding] [RMI TCP Connection(6)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2024-10-24T23:24:20.607+05:30  INFO 14348 --- [sh-Shaastra-Coding] [RMI TCP Connection(6)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-10-24T23:24:20.610+05:30  INFO 14348 --- [sh-Shaastra-Coding] [RMI TCP Connection(6)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-10-24T23:24:20.626+05:30  INFO 14348 --- [sh-Shaastra-Coding] [RMI TCP Connection(6)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-10-24T23:24:25.503+05:30  INFO 16760 --- [sh-Shaastra-Coding] [main] c.s.demo.ShShaastraCodingApplication     : Starting ShShaastraCodingApplication using Java 21.0.4 with PID 16760 (F:\Hari - WorkSpace - 1\sh-Shaastra-Coding3\target\classes started by Viral in F:\Hari - WorkSpace - 1\sh-Shaastra-Coding3)
+2024-10-24T23:24:25.508+05:30  INFO 16760 --- [sh-Shaastra-Coding] [main] c.s.demo.ShShaastraCodingApplication     : No active profile set, falling back to 1 default profile: "default"
+2024-10-24T23:24:26.596+05:30  INFO 16760 --- [sh-Shaastra-Coding] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-24T23:24:26.702+05:30  INFO 16760 --- [sh-Shaastra-Coding] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 94 ms. Found 7 JPA repository interfaces.
+2024-10-24T23:24:28.009+05:30  INFO 16760 --- [sh-Shaastra-Coding] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-10-24T23:24:28.040+05:30  INFO 16760 --- [sh-Shaastra-Coding] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-10-24T23:24:28.041+05:30  INFO 16760 --- [sh-Shaastra-Coding] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-24T23:24:28.173+05:30  INFO 16760 --- [sh-Shaastra-Coding] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-10-24T23:24:28.174+05:30  INFO 16760 --- [sh-Shaastra-Coding] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2537 ms
+2024-10-24T23:24:28.424+05:30  INFO 16760 --- [sh-Shaastra-Coding] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-24T23:24:28.525+05:30  INFO 16760 --- [sh-Shaastra-Coding] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-10-24T23:24:28.592+05:30  INFO 16760 --- [sh-Shaastra-Coding] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-10-24T23:24:29.101+05:30  INFO 16760 --- [sh-Shaastra-Coding] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-24T23:24:29.163+05:30  INFO 16760 --- [sh-Shaastra-Coding] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-10-24T23:24:29.445+05:30  INFO 16760 --- [sh-Shaastra-Coding] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@3e4afd10
+2024-10-24T23:24:29.450+05:30  INFO 16760 --- [sh-Shaastra-Coding] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-10-24T23:24:29.524+05:30  WARN 16760 --- [sh-Shaastra-Coding] [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-10-24T23:24:31.503+05:30  INFO 16760 --- [sh-Shaastra-Coding] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-24T23:24:31.802+05:30  INFO 16760 --- [sh-Shaastra-Coding] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-24T23:24:32.556+05:30  WARN 16760 --- [sh-Shaastra-Coding] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-10-24T23:24:33.306+05:30  INFO 16760 --- [sh-Shaastra-Coding] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-10-24T23:24:33.326+05:30  INFO 16760 --- [sh-Shaastra-Coding] [main] c.s.demo.ShShaastraCodingApplication     : Started ShShaastraCodingApplication in 8.53 seconds (process running for 10.35)
+2024-10-24T23:28:32.562+05:30  WARN 16760 --- [sh-Shaastra-Coding] [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=4m34s110ms978µs900ns).
+2024-10-24T23:29:22.072+05:30  INFO 16760 --- [sh-Shaastra-Coding] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-24T23:29:22.073+05:30  INFO 16760 --- [sh-Shaastra-Coding] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-10-24T23:29:22.076+05:30  INFO 16760 --- [sh-Shaastra-Coding] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2024-10-24T23:29:23.811+05:30  INFO 16760 --- [sh-Shaastra-Coding] [http-nio-8080-exec-4] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 968 ms
+2024-10-24T23:30:46.062+05:30  INFO 16760 --- [sh-Shaastra-Coding] [RMI TCP Connection(7)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2024-10-24T23:30:46.091+05:30  INFO 16760 --- [sh-Shaastra-Coding] [RMI TCP Connection(7)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-10-24T23:30:46.093+05:30  INFO 16760 --- [sh-Shaastra-Coding] [RMI TCP Connection(7)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-10-24T23:30:46.108+05:30  INFO 16760 --- [sh-Shaastra-Coding] [RMI TCP Connection(7)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-10-24T23:30:55.126+05:30  INFO 12800 --- [sh-Shaastra-Coding] [main] c.s.demo.ShShaastraCodingApplication     : Starting ShShaastraCodingApplication using Java 21.0.4 with PID 12800 (F:\Hari - WorkSpace - 1\sh-Shaastra-Coding3\target\classes started by Viral in F:\Hari - WorkSpace - 1\sh-Shaastra-Coding3)
+2024-10-24T23:30:55.132+05:30  INFO 12800 --- [sh-Shaastra-Coding] [main] c.s.demo.ShShaastraCodingApplication     : No active profile set, falling back to 1 default profile: "default"
+2024-10-24T23:30:56.093+05:30  INFO 12800 --- [sh-Shaastra-Coding] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-24T23:30:56.185+05:30  INFO 12800 --- [sh-Shaastra-Coding] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 80 ms. Found 7 JPA repository interfaces.
+2024-10-24T23:30:57.197+05:30  INFO 12800 --- [sh-Shaastra-Coding] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-10-24T23:30:57.225+05:30  INFO 12800 --- [sh-Shaastra-Coding] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-10-24T23:30:57.226+05:30  INFO 12800 --- [sh-Shaastra-Coding] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-24T23:30:57.326+05:30  INFO 12800 --- [sh-Shaastra-Coding] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-10-24T23:30:57.327+05:30  INFO 12800 --- [sh-Shaastra-Coding] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2077 ms
+2024-10-24T23:30:57.535+05:30  INFO 12800 --- [sh-Shaastra-Coding] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-24T23:30:57.618+05:30  INFO 12800 --- [sh-Shaastra-Coding] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-10-24T23:30:57.670+05:30  INFO 12800 --- [sh-Shaastra-Coding] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-10-24T23:30:58.084+05:30  INFO 12800 --- [sh-Shaastra-Coding] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-24T23:30:58.135+05:30  INFO 12800 --- [sh-Shaastra-Coding] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-10-24T23:30:58.377+05:30  INFO 12800 --- [sh-Shaastra-Coding] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@1d8be7b9
+2024-10-24T23:30:58.382+05:30  INFO 12800 --- [sh-Shaastra-Coding] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-10-24T23:30:58.437+05:30  WARN 12800 --- [sh-Shaastra-Coding] [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-10-24T23:31:00.035+05:30  INFO 12800 --- [sh-Shaastra-Coding] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-24T23:31:00.336+05:30  INFO 12800 --- [sh-Shaastra-Coding] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-24T23:31:00.968+05:30  WARN 12800 --- [sh-Shaastra-Coding] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-10-24T23:31:01.581+05:30  INFO 12800 --- [sh-Shaastra-Coding] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-10-24T23:31:01.593+05:30  INFO 12800 --- [sh-Shaastra-Coding] [main] c.s.demo.ShShaastraCodingApplication     : Started ShShaastraCodingApplication in 7.029 seconds (process running for 7.897)
+2024-10-24T23:31:36.382+05:30  INFO 12800 --- [sh-Shaastra-Coding] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-24T23:31:36.382+05:30  INFO 12800 --- [sh-Shaastra-Coding] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-10-24T23:31:36.384+05:30  INFO 12800 --- [sh-Shaastra-Coding] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2024-10-24T23:31:37.663+05:30  INFO 12800 --- [sh-Shaastra-Coding] [http-nio-8080-exec-4] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 901 ms
+2024-10-24T23:42:25.707+05:30  INFO 12800 --- [sh-Shaastra-Coding] [RMI TCP Connection(16)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2024-10-24T23:42:25.725+05:30  INFO 12800 --- [sh-Shaastra-Coding] [RMI TCP Connection(16)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-10-24T23:42:25.727+05:30  INFO 12800 --- [sh-Shaastra-Coding] [RMI TCP Connection(16)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-10-24T23:42:25.742+05:30  INFO 12800 --- [sh-Shaastra-Coding] [RMI TCP Connection(16)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-10-24T23:42:43.896+05:30  INFO 6704 --- [sh-Shaastra-Coding] [main] c.s.demo.ShShaastraCodingApplication     : Starting ShShaastraCodingApplication using Java 21.0.4 with PID 6704 (F:\Hari - WorkSpace - 1\sh-Shaastra-Coding3\target\classes started by Viral in F:\Hari - WorkSpace - 1\sh-Shaastra-Coding3)
+2024-10-24T23:42:43.900+05:30  INFO 6704 --- [sh-Shaastra-Coding] [main] c.s.demo.ShShaastraCodingApplication     : No active profile set, falling back to 1 default profile: "default"
+2024-10-24T23:42:44.764+05:30  INFO 6704 --- [sh-Shaastra-Coding] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-24T23:42:44.851+05:30  INFO 6704 --- [sh-Shaastra-Coding] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 78 ms. Found 7 JPA repository interfaces.
+2024-10-24T23:42:45.847+05:30  INFO 6704 --- [sh-Shaastra-Coding] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-10-24T23:42:45.867+05:30  INFO 6704 --- [sh-Shaastra-Coding] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-10-24T23:42:45.867+05:30  INFO 6704 --- [sh-Shaastra-Coding] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-24T23:42:45.967+05:30  INFO 6704 --- [sh-Shaastra-Coding] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-10-24T23:42:45.968+05:30  INFO 6704 --- [sh-Shaastra-Coding] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1954 ms
+2024-10-24T23:42:46.180+05:30  INFO 6704 --- [sh-Shaastra-Coding] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-24T23:42:46.256+05:30  INFO 6704 --- [sh-Shaastra-Coding] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-10-24T23:42:46.308+05:30  INFO 6704 --- [sh-Shaastra-Coding] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-10-24T23:42:46.715+05:30  INFO 6704 --- [sh-Shaastra-Coding] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-24T23:42:46.762+05:30  INFO 6704 --- [sh-Shaastra-Coding] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-10-24T23:42:46.988+05:30  INFO 6704 --- [sh-Shaastra-Coding] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@794cb26b
+2024-10-24T23:42:46.990+05:30  INFO 6704 --- [sh-Shaastra-Coding] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-10-24T23:42:47.038+05:30  WARN 6704 --- [sh-Shaastra-Coding] [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-10-24T23:42:48.589+05:30  INFO 6704 --- [sh-Shaastra-Coding] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-24T23:42:48.667+05:30 DEBUG 6704 --- [sh-Shaastra-Coding] [main] org.hibernate.SQL                        : 
+    alter table if exists shaastra 
+       alter column tp_id set data type varchar(255)
+2024-10-24T23:42:48.786+05:30  WARN 6704 --- [sh-Shaastra-Coding] [main] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "
+    alter table if exists shaastra 
+       alter column tp_id set data type varchar(255)" via JDBC [ERROR: foreign key constraint "fkmvr98xwi546p9vwi2krypwq35" cannot be implemented
+  Detail: Key columns "tp_id" and "erp_id" are of incompatible types: character varying and bigint.]
+
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "
+    alter table if exists shaastra 
+       alter column tp_id set data type varchar(255)" via JDBC [ERROR: foreign key constraint "fkmvr98xwi546p9vwi2krypwq35" cannot be implemented
+  Detail: Key columns "tp_id" and "erp_id" are of incompatible types: character varying and bigint.]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:94) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:583) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlStrings(AbstractSchemaMigrator.java:523) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.migrateTable(AbstractSchemaMigrator.java:341) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.tool.schema.internal.GroupedSchemaMigratorImpl.performTablesMigration(GroupedSchemaMigratorImpl.java:84) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:240) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:119) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:280) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:144) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at java.base/java.util.HashMap.forEach(HashMap.java:1429) ~[na:na]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:141) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:322) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:457) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1506) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75) ~[spring-orm-6.1.13.jar:6.1.13]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390) ~[spring-orm-6.1.13.jar:6.1.13]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409) ~[spring-orm-6.1.13.jar:6.1.13]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396) ~[spring-orm-6.1.13.jar:6.1.13]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366) ~[spring-orm-6.1.13.jar:6.1.13]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1853) ~[spring-beans-6.1.13.jar:6.1.13]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1802) ~[spring-beans-6.1.13.jar:6.1.13]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600) ~[spring-beans-6.1.13.jar:6.1.13]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522) ~[spring-beans-6.1.13.jar:6.1.13]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337) ~[spring-beans-6.1.13.jar:6.1.13]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.13.jar:6.1.13]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335) ~[spring-beans-6.1.13.jar:6.1.13]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:205) ~[spring-beans-6.1.13.jar:6.1.13]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:954) ~[spring-context-6.1.13.jar:6.1.13]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625) ~[spring-context-6.1.13.jar:6.1.13]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.3.4.jar:3.3.4]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754) ~[spring-boot-3.3.4.jar:3.3.4]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456) ~[spring-boot-3.3.4.jar:3.3.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335) ~[spring-boot-3.3.4.jar:3.3.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363) ~[spring-boot-3.3.4.jar:3.3.4]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352) ~[spring-boot-3.3.4.jar:3.3.4]
+	at com.shaastra.demo.ShShaastraCodingApplication.main(ShShaastraCodingApplication.java:17) ~[classes/:na]
+Caused by: org.postgresql.util.PSQLException: ERROR: foreign key constraint "fkmvr98xwi546p9vwi2krypwq35" cannot be implemented
+  Detail: Key columns "tp_id" and "erp_id" are of incompatible types: character varying and bigint.
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2733) ~[postgresql-42.7.4.jar:42.7.4]
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2420) ~[postgresql-42.7.4.jar:42.7.4]
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:372) ~[postgresql-42.7.4.jar:42.7.4]
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:517) ~[postgresql-42.7.4.jar:42.7.4]
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:434) ~[postgresql-42.7.4.jar:42.7.4]
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:356) ~[postgresql-42.7.4.jar:42.7.4]
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:341) ~[postgresql-42.7.4.jar:42.7.4]
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:317) ~[postgresql-42.7.4.jar:42.7.4]
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:312) ~[postgresql-42.7.4.jar:42.7.4]
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94) ~[HikariCP-5.1.0.jar:na]
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-5.1.0.jar:na]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	... 37 common frames omitted
+
+2024-10-24T23:42:48.934+05:30  INFO 6704 --- [sh-Shaastra-Coding] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-24T23:42:49.535+05:30  WARN 6704 --- [sh-Shaastra-Coding] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-10-24T23:42:50.336+05:30  INFO 6704 --- [sh-Shaastra-Coding] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-10-24T23:42:50.355+05:30  INFO 6704 --- [sh-Shaastra-Coding] [main] c.s.demo.ShShaastraCodingApplication     : Started ShShaastraCodingApplication in 7.023 seconds (process running for 22.973)
+2024-10-24T23:42:59.906+05:30  INFO 6704 --- [sh-Shaastra-Coding] [RMI TCP Connection(2)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2024-10-24T23:42:59.927+05:30  INFO 6704 --- [sh-Shaastra-Coding] [RMI TCP Connection(2)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-10-24T23:42:59.930+05:30  INFO 6704 --- [sh-Shaastra-Coding] [RMI TCP Connection(2)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-10-24T23:42:59.947+05:30  INFO 6704 --- [sh-Shaastra-Coding] [RMI TCP Connection(2)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

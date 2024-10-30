@@ -1,6 +1,7 @@
 package com.shaastra.entities;
 
 import java.time.OffsetDateTime;
+import java.util.HashSet;
 import java.util.Set;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
@@ -13,7 +14,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
-import jakarta.persistence.OneToMany;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -41,8 +41,13 @@ public class Contests
 	
 	private OffsetDateTime contest_date;  /* partition done */
 	
-	@OneToMany(mappedBy = "contest")
-    private Set<ContestParticipants> participants;
+	@ManyToMany
+    @JoinTable(
+        name = "contest_participant_mapping",
+        joinColumns = @JoinColumn(name = "contest_id"),
+        inverseJoinColumns = @JoinColumn(name = "special_student_id")
+    )
+    private Set<ContestParticipants> participants = new HashSet<>();
 	
 	@ManyToMany
     @JoinTable(

@@ -11,7 +11,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.ReflectionUtils;
-import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -37,13 +36,13 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 public class StudentController 
 {
     private final StudentRepository studentRepository;
-    private LocalValidatorFactoryBean validator; // Inject Validator
+//    private LocalValidatorFactoryBean validator; // Inject Validator
 
     private static final Logger logger = LoggerFactory.getLogger(StudentController.class);
 
-    public StudentController(StudentRepository studentRepository , LocalValidatorFactoryBean validator) {
+    public StudentController(StudentRepository studentRepository) {
         this.studentRepository = studentRepository;
-        this.validator = validator;
+//        this.validator = validator;
     }
 
     @PostMapping
@@ -88,13 +87,16 @@ public class StudentController
         Optional<Students> existingStudent = studentRepository.findById(id);
         UpdateApiResponse<Students> response;
 
-        if (existingStudent.isPresent()) {
+        if (existingStudent.isPresent()) 
+        {
             Students toUpdateStudent = existingStudent.get();
 
-            updates.forEach((key, value) -> {
+            updates.forEach((key, value) -> 
+            {
                 Field field = ReflectionUtils.findField(Students.class, key);
 
-                if (field != null) {
+                if (field != null) 
+                {
                     field.setAccessible(true);
                     ReflectionUtils.setField(field, toUpdateStudent, value);
 

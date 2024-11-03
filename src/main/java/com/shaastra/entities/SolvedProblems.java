@@ -26,6 +26,10 @@ public class SolvedProblems
     @JoinColumn(name = "contest_participant_id", nullable = false)
     private ContestParticipants contestParticipant;
 	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "contest_id", nullable = false)
+	private Contests contest; // Direct reference to Contest
+	
 	@ManyToOne
     @JoinColumn(name = "contest_problem_id", nullable = false)
     private ContestProblem contestProblem;

@@ -3,9 +3,13 @@
 import java.util.HashSet;
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToMany;
@@ -23,18 +27,22 @@ import lombok.Setter;
 public class ContestParticipants 
 {
 	@Id  /* enforce a pattern starting with --> "@" <-- */
-	private String sh_id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
 	
 	@OneToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "sh_id", nullable = false)
+	@JoinColumn(name = "sh_id", referencedColumnName = "sh_id" , insertable = false, nullable = false)
 	private Students student;
 
     @OneToMany(mappedBy = "contestParticipant", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private Set<ContestResults> contestResults = new HashSet<>();
 
     @OneToMany(mappedBy = "contestParticipant", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<SolvedProblems> solvedProblems = new HashSet<>();
+    @JsonIgnore          
+    private Set<SolvedProblems> solvedProblems = new HashSet<>();  /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!111*/
     
     @ManyToMany(mappedBy = "participants")
+//    @JsonIgnore
+//    @JsonBackReference
     private Set<Contests> contests = new HashSet<>();
 }

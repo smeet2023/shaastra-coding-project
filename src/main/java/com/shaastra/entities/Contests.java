@@ -39,19 +39,21 @@ public class Contests
 	@Column(unique = true)
 	private String contest_link;
 	
-	private OffsetDateTime contest_date;  /* partition done */
+	private OffsetDateTime contest_date;
 	
 	@ManyToMany
     @JoinTable(
-        name = "contest_participant_mapping",
+        name = "contest_contest_participant_join_table",
         joinColumns = @JoinColumn(name = "contest_id"),
-        inverseJoinColumns = @JoinColumn(name = "special_student_id")
+        inverseJoinColumns = @JoinColumn(name = "sh_id")
     )
+//	@JsonIgnore
+//	@JsonManagedReference
     private Set<ContestParticipants> participants = new HashSet<>();
 	
 	@ManyToMany
     @JoinTable(
-        name = "ContestProblemJoinTable",
+        name = "contest_contest_problem_join_table",
         joinColumns = @JoinColumn(name = "contest_id"),
         inverseJoinColumns = @JoinColumn(name = "contest_problem_id")
     )

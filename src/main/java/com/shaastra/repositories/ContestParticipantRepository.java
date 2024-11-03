@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.shaastra.entities.ContestParticipants;
 
 @Repository
-public interface ContestParticipantRepository extends JpaRepository<ContestParticipants, String> {
+public interface ContestParticipantRepository extends JpaRepository<ContestParticipants, Integer> {
     // Additional query methods can be defined here
 }

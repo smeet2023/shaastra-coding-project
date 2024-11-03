@@ -39,12 +39,13 @@ public class SolvedProblemsController
 		this.solvedProblemsRepository = solvedProblemsRepository;
 	}
 	
-	@GetMapping("/participants/solved-problems")
-	public ResponseEntity<List<SolvedProblems>> getAll()
+	@GetMapping("/participants/{participantId}/solved-problems")
+	public ResponseEntity<UpdateApiResponse<List<SolvedProblems>>> getAllSolvedProblems(@PathVariable Integer participantId)
 	{
-		List<SolvedProblems> solvedProblems = solvedProblemsRepository.findAll();
-		return new ResponseEntity<>(solvedProblems , HttpStatus.OK);
+		List<SolvedProblems> solvedProblems = solvedProblemsRepository.findByContestParticipantId(participantId);
+		return ResponseEntity.ok(new UpdateApiResponse<>("" , solvedProblems));
 	}
+	
 	
 	
 	@PostMapping("/{contestId}/participants/{participantId}/solved-problems")

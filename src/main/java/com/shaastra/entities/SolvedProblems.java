@@ -1,5 +1,8 @@
 package com.shaastra.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -24,10 +27,14 @@ public class SolvedProblems
 	
 	@ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "contest_participant_id", nullable = false)
-    private ContestParticipants contestParticipant;
+	@JsonBackReference
+	private ContestParticipants contestParticipant;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "contest_id", nullable = false)
+//	@JsonIgnore
+//	@JsonBackReference
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	private Contests contest; // Direct reference to Contest
 	
 	@ManyToOne

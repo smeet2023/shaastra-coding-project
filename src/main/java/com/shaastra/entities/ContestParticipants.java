@@ -3,7 +3,8 @@
 import java.util.HashSet;
 import java.util.Set;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -38,11 +39,13 @@ public class ContestParticipants
 	private Set<ContestResults> contestResults = new HashSet<>();
 
     @OneToMany(mappedBy = "contestParticipant", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonIgnore          
+//    @JsonIgnore          
+    @JsonManagedReference
+    @JsonIgnoreProperties("contestParticipant")
     private Set<SolvedProblems> solvedProblems = new HashSet<>();  /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!111*/
     
     @ManyToMany(mappedBy = "participants")
-//    @JsonIgnore
+    @JsonIgnoreProperties("participants") // Ignore the 'participants' field in Contests to avoid recursion
 //    @JsonBackReference
     private Set<Contests> contests = new HashSet<>();
 }

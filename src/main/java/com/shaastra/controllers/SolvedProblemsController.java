@@ -39,6 +39,9 @@ public class SolvedProblemsController
 		this.solvedProblemsRepository = solvedProblemsRepository;
 	}
 	
+	
+	
+	
 	@GetMapping("/participants/{participantId}/solved-problems")
 	public ResponseEntity<UpdateApiResponse<List<SolvedProblems>>> getAllSolvedProblems(@PathVariable Integer participantId)
 	{

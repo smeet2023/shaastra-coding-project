@@ -3,8 +3,9 @@
 import java.util.HashSet;
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -29,10 +30,11 @@ public class ContestParticipants
 {
 	@Id  /* enforce a pattern starting with --> "@" <-- */
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+	private Integer participant_id;
 	
 	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "sh_id", referencedColumnName = "sh_id" , insertable = false, nullable = false)
+	@JsonIgnore
 	private Students student;
 
     @OneToMany(mappedBy = "contestParticipant", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
@@ -40,7 +42,7 @@ public class ContestParticipants
 
     @OneToMany(mappedBy = "contestParticipant", cascade = CascadeType.ALL, orphanRemoval = true)
 //    @JsonIgnore          
-    @JsonManagedReference
+//    @JsonManagedReference
     @JsonIgnoreProperties("contestParticipant")
     private Set<SolvedProblems> solvedProblems = new HashSet<>();  /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!111*/
     

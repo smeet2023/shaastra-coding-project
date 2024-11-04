@@ -2,7 +2,9 @@ package com.shaastra.controllers;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,6 +22,9 @@ import com.shaastra.entities.SolvedProblems;
 import com.shaastra.repositories.ContestParticipantRepository;
 import com.shaastra.repositories.ContestRepository;
 import com.shaastra.repositories.SolvedProblemsRepository;
+import com.shaastra.resource_representation.solved_problems.ParticipantContestsDTO;
+import com.shaastra.resource_representation.solved_problems.ContestSolvedProblemsDTO;
+import com.shaastra.resource_representation.solved_problems.SolvedProblemDTO;
 
 @RestController
 @RequestMapping("api/shaastra/contest")
@@ -30,9 +35,11 @@ public class SolvedProblemsController
 	private ContestRepository contestRepository; 
 //	private ContestProblemRepository contestProblemRepository; 
 	private ContestParticipantRepository contestParticipantRepository; 
+//	private ModelMapper modelMapper;
 	
 	public SolvedProblemsController(SolvedProblemsRepository solvedProblemsRepository,ContestRepository contestRepository, ContestParticipantRepository contestParticipantRepository)
 	{
+//		this.modelMapper = modelMapper;
 		this.contestParticipantRepository = contestParticipantRepository;
 //		this.contestProblemRepository = contestProblemRepository;
 		this.contestRepository = contestRepository;
@@ -43,12 +50,42 @@ public class SolvedProblemsController
 	
 	
 	@GetMapping("/participants/{participantId}/solved-problems")
-	public ResponseEntity<UpdateApiResponse<List<SolvedProblems>>> getAllSolvedProblems(@PathVariable Integer participantId)
-	{
-		List<SolvedProblems> solvedProblems = solvedProblemsRepository.findByContestParticipantId(participantId);
-		return ResponseEntity.ok(new UpdateApiResponse<>("" , solvedProblems));
+	public ResponseEntity<UpdateApiResponse<ParticipantContestsDTO>> getAllSolvedProblems(@PathVariable Integer participantId) {
+	    // Fetch solved problems for the given participant
+	    List<SolvedProblems> solvedProblems = solvedProblemsRepository.findByContestParticipantIdGroupedByContest(participantId);
+
+	    // Group solved problems by contest ID
+	    Map<Integer, List<SolvedProblemDTO>> groupedByContest = solvedProblems.stream()
+	        .collect(Collectors.groupingBy(sp -> sp.getContest().getContest_id(), 
+	            Collectors.mapping(sp -> {
+	                SolvedProblemDTO spDTO = new SolvedProblemDTO();
+	                spDTO.setSp_id(sp.getSp_id());
+	                spDTO.setScore(sp.getScore());
+	                spDTO.setContest_problem_id(sp.getContestProblem().getContest_problem_id());
+	                return spDTO;
+	            }, Collectors.toList())));
+
+	    // Convert the map to a list of ContestSolvedProblemsDTO
+	    List<ContestSolvedProblemsDTO> contestSolvedProblemsList = groupedByContest.entrySet().stream()
+	        .map(entry -> {
+	            ContestSolvedProblemsDTO contestDTO = new ContestSolvedProblemsDTO();
+	            contestDTO.setContest_id(entry.getKey());
+	            contestDTO.setListOfSolvedProblems(entry.getValue());
+	            return contestDTO;
+	        })
+	        .collect(Collectors.toList());
+
+	    // Create the main DTO and set the participant ID and contest list
+	    ParticipantContestsDTO participantContestsDTO = new ParticipantContestsDTO();
+	    participantContestsDTO.setContest_participant_id(participantId);
+	    participantContestsDTO.setContests(contestSolvedProblemsList);
+
+	    // Return the response wrapped in UpdateApiResponse
+	    return ResponseEntity.ok(new UpdateApiResponse<>("", participantContestsDTO));
 	}
-	
+
+
+
 	
 	
 	@PostMapping("/{contestId}/participants/{participantId}/solved-problems")

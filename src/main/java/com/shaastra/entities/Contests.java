@@ -48,7 +48,7 @@ public class Contests
         joinColumns = @JoinColumn(name = "contest_id"),
         inverseJoinColumns = @JoinColumn(name = "sh_id")
     )
-	@JsonIgnoreProperties("contests")
+//	@JsonIgnoreProperties("contests")
 //	@JsonManagedReference
     private Set<ContestParticipants> participants = new HashSet<>();
 	

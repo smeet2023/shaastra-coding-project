@@ -3,7 +3,6 @@ package com.shaastra.controllers;
 import java.lang.reflect.Field;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,8 +20,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.shaastra.config.UpdateApiResponse;
 import com.shaastra.entities.Students;
+import com.shaastra.exceptions.ApplicationException;
 import com.shaastra.exceptions.ResourceNotFoundException;
 import com.shaastra.repositories.StudentRepository;
 
@@ -46,23 +45,32 @@ public class StudentController
     }
 
     @PostMapping
-    public ResponseEntity<Students> createStudent(@RequestBody Students student) {
+    public ResponseEntity<Students> createStudent(@RequestBody Students student) 
+    {
         Students savedStudent = studentRepository.save(student);
         logger.info("Handling post request");
         return new ResponseEntity<>(savedStudent, HttpStatus.CREATED);
     }
 
     @GetMapping("/{erpId}")
-    public ResponseEntity<Students> getStudentById(@PathVariable long erpId) {
+    public ResponseEntity<Students> getStudentById(@PathVariable long erpId) 
+    {
         Students student = studentRepository.findById(erpId)
                 .orElseThrow(() -> new ResourceNotFoundException("Student not found with ID: " + erpId));
         return new ResponseEntity<>(student, HttpStatus.OK);
     }
 
     @GetMapping
-    public ResponseEntity<List<Students>> getAllStudents() {
-        List<Students> students = studentRepository.findAll();
-        return new ResponseEntity<>(students, HttpStatus.OK);
+    public ResponseEntity<List<Students>> getAllStudents() 
+    {
+    	try {
+    		List<Students> students = studentRepository.findAll();
+    		return new ResponseEntity<>(students, HttpStatus.OK);
+		} 
+    	catch (Exception e) 
+    	{
+    		throw new ApplicationException("Failed to retrieve Students!", e);
+		}
     }
 
     @PutMapping("/{erpId}")
@@ -70,26 +78,17 @@ public class StudentController
         Students student = studentRepository.findById(erpId)
                 .orElseThrow(() -> new ResourceNotFoundException("Student not found with ID: " + erpId));
 
-        // Update fields directly
-//        student.setName(studentDetails.getName());  // Assuming 'name' is a field
-//        student.setEmail(studentDetails.getGsuite_email());  // Assuming 'email' is a field
-        // Add other fields as necessary
-
         Students updatedStudent = studentRepository.save(student);
         return new ResponseEntity<>(updatedStudent, HttpStatus.OK);
     }
     
     @PatchMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<UpdateApiResponse<Students>> updateStudentsByFields(
+    public ResponseEntity<Students> updateStudentsByFields(
             @PathVariable long id,
             @RequestBody Map<String, Object> updates) {
 
-        Optional<Students> existingStudent = studentRepository.findById(id);
-        UpdateApiResponse<Students> response;
-
-        if (existingStudent.isPresent()) 
-        {
-            Students toUpdateStudent = existingStudent.get();
+        Students existingStudent = studentRepository.findById(id)
+        		.orElseThrow(() -> new ResourceNotFoundException("Student with the id : " + id + " could not be found !"));
 
             updates.forEach((key, value) -> 
             {
@@ -98,7 +97,7 @@ public class StudentController
                 if (field != null) 
                 {
                     field.setAccessible(true);
-                    ReflectionUtils.setField(field, toUpdateStudent, value);
+                    ReflectionUtils.setField(field, existingStudent, value);
 
                     // Manually validate the specific field being updated
 //                    Set<ConstraintViolation<Students>> violations = validator.validateProperty(toUpdateStudent, key);
@@ -109,14 +108,8 @@ public class StudentController
                 }
             });
 
-            studentRepository.saveAndFlush(toUpdateStudent);
-            response = new UpdateApiResponse<>("Student updated successfully", toUpdateStudent);
-            return ResponseEntity.ok(response);
-
-        } else {
-            response = new UpdateApiResponse<>("Student with ID " + id + " not found", null);
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
-        }
+            studentRepository.saveAndFlush(existingStudent);
+            return ResponseEntity.ok(existingStudent);
     }
 
     

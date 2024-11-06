@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.shaastra.config.UpdateApiResponse;
 import com.shaastra.entities.SolvedProblems;
 import com.shaastra.repositories.ContestParticipantRepository;
 import com.shaastra.repositories.ContestRepository;
@@ -45,11 +44,12 @@ public class SolvedProblemsController
 //		this.contestProblemRepository = contestProblemRepository;
 	}
 	
-	
-	
+	/////////////////////////////////////////////////////////////////////////
+	/* To get all solved-problems  solved by a participant in all contests*/
+	/////////////////////////////////////////////////////////////////////////
 	
 	@GetMapping("/participants/{participantId}/solved-problems")
-	public ResponseEntity<UpdateApiResponse<ParticipantContestsDTO>> getAllSolvedProblems(@PathVariable Integer participantId) 
+	public ResponseEntity<ParticipantContestsDTO> getAllSolvedProblems(@PathVariable Integer participantId) 
 	{
 	    // Fetch solved problems for the given participant
 	    List<SolvedProblems> solvedProblems = solvedProblemsRepository.findByContestParticipantIdGroupedByContest(participantId);
@@ -57,7 +57,8 @@ public class SolvedProblemsController
 	    // Group solved problems by contest ID
 	    Map<Integer, List<SolvedProblemDTO>> groupedByContest = solvedProblems.stream()
 	        .collect(Collectors.groupingBy(sp -> sp.getContest().getContest_id(), 
-	            Collectors.mapping(sp -> {
+	            Collectors.mapping(sp -> 
+	            {
 	                SolvedProblemDTO spDTO = new SolvedProblemDTO();
 	                spDTO.setSp_id(sp.getSp_id());
 	                spDTO.setScore(sp.getScore());
@@ -67,7 +68,8 @@ public class SolvedProblemsController
 
 	    // Convert the map to a list of ContestSolvedProblemsDTO
 	    List<ContestSolvedProblemsDTO> contestSolvedProblemsList = groupedByContest.entrySet().stream()
-	        .map(entry -> {
+	        .map(entry -> 
+	        {
 	            ContestSolvedProblemsDTO contestDTO = new ContestSolvedProblemsDTO();
 	            contestDTO.setContest_id(entry.getKey());
 	            contestDTO.setListOfSolvedProblems(entry.getValue());
@@ -81,8 +83,12 @@ public class SolvedProblemsController
 	    participantContestsDTO.setContests(contestSolvedProblemsList);
 
 	    // Return the response wrapped in UpdateApiResponse
-	    return ResponseEntity.ok(new UpdateApiResponse<>("", participantContestsDTO));
+	    return ResponseEntity.ok(participantContestsDTO);
 	}
+	
+	/////////////////////////////////////////////////////////////////////////
+	/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+	/////////////////////////////////////////////////////////////////////////
 
 
 //	@GetMapping("/participants/{participantId}/older-V/solved-problems")

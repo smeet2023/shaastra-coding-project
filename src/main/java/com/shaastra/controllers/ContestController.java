@@ -76,20 +76,6 @@ public class ContestController
         	contestRepository.save(contest);
         	return ResponseEntity.status(HttpStatus.CREATED).body(modelMapper.map(contest, ContestDTO.class));
         }
-//        List<Integer> listOfFoundProblemsID = listOfFoundProblems.stream().map(ContestProblem::getContest_problem_id)
-//        															      .collect(Collectors.toList());
-        
-//        TreeSet<Integer> unmatchedProblems = new TreeSet<>(inputProblems);
-//        unmatchedProblems.removeAll(listOfFoundProblemsID);
-        
-//        if(unmatchedProblems.isEmpty())
-//        {
-//        	Set<ContestProblem> setOfProblems = new HashSet<>();
-//        	setOfProblems.add(inputProblems);
-        	
-//        }
-//        else
-//        	return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(modelMapper.map(contest, ContestDTO.class));
     }
 
 //    @PutMapping("/{id}")

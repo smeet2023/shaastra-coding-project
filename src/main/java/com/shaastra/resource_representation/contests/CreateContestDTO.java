@@ -1,7 +1,6 @@
 package com.shaastra.resource_representation.contests;
 
 import java.time.OffsetDateTime;
-import java.util.Set;
 import java.util.TreeSet;
 
 import lombok.Getter;

@@ -1,8 +1,8 @@
 package com.shaastra.controllers;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.TreeSet;
 import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.shaastra.entities.ContestProblem;
 import com.shaastra.entities.Contests;
 import com.shaastra.exceptions.ApplicationException;
 import com.shaastra.exceptions.ResourceNotFoundException;
@@ -46,28 +47,49 @@ public class ContestController
     @PostMapping("/create-contest")
     public ResponseEntity<ContestDTO> createContest(@RequestBody CreateContestDTO contestDTO) 
     {
-    	Set<Integer> listOfFoundProblems = contestProblemRepository.findAllByJustId();
-        Contests contest = new Contests();
+//    	List<ContestProblem> listOfFoundProblems = contestProblemRepository.findAll();
+//    	System.out.println(">>>>> 🔴🔴🔴🔴🔴" + listOfFoundProblems.size());
+//    	System.out.println(">>>>> 🔴🔴🔴🔴🔴" + setOfProblems.size());
+    	/*******************************************************************************/
+    	Contests contest = new Contests();
         contest.setContest_description(contestDTO.getContest_description());
         contest.setContest_date(contestDTO.getContest_date());
         contest.setContest_link(contestDTO.getContest_link());
         contest.setStatus(contestDTO.getStatus());
-
-        TreeSet<Integer> inputProblems = contestDTO.getContestProblems();
-        TreeSet<Integer> unmatchedProblems = new TreeSet<>(inputProblems);
-        unmatchedProblems.removeAll(listOfFoundProblems);
-        
-        if(unmatchedProblems.isEmpty())
+        Set<Integer> inputProblems = contestDTO.getContestProblems();
+        /*******************************************************************************/
+        Set<ContestProblem> matchingProblems = contestProblemRepository.findByContestProblemIds(inputProblems);
+        if (matchingProblems.size() != inputProblems.size()) 
         {
-        	inputProblems.forEach(cp -> {
-        		contest.set
-        	})
+            Set<Integer> foundProblemIds = matchingProblems.stream()
+                .map(ContestProblem::getContest_problem_id)
+                .collect(Collectors.toSet());
+            Set<Integer> missingIds = new HashSet<>(inputProblems);
+            missingIds.removeAll(foundProblemIds);
+
+            throw new ResourceNotFoundException("Contest problems with IDs " + missingIds + " could not be found!");
+        }
+        else
+        {
+        	System.out.println(">>>>> 🔴🔴🔴🔴🔴" + inputProblems);
+        	contest.setContestProblems(matchingProblems);
         	contestRepository.save(contest);
         	return ResponseEntity.status(HttpStatus.CREATED).body(modelMapper.map(contest, ContestDTO.class));
         }
-        // Step 4: Handle new contest problems using ModelMapper
-        else
-        	return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(modelMapper.map(contest, ContestDTO.class));
+//        List<Integer> listOfFoundProblemsID = listOfFoundProblems.stream().map(ContestProblem::getContest_problem_id)
+//        															      .collect(Collectors.toList());
+        
+//        TreeSet<Integer> unmatchedProblems = new TreeSet<>(inputProblems);
+//        unmatchedProblems.removeAll(listOfFoundProblemsID);
+        
+//        if(unmatchedProblems.isEmpty())
+//        {
+//        	Set<ContestProblem> setOfProblems = new HashSet<>();
+//        	setOfProblems.add(inputProblems);
+        	
+//        }
+//        else
+//        	return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(modelMapper.map(contest, ContestDTO.class));
     }
 
 //    @PutMapping("/{id}")

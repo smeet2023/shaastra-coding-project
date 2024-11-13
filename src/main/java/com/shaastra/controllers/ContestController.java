@@ -47,18 +47,19 @@ public class ContestController
     @PostMapping("/create-contest")
     public ResponseEntity<ContestDTO> createContest(@RequestBody CreateContestDTO contestDTO) 
     {
-//    	List<ContestProblem> listOfFoundProblems = contestProblemRepository.findAll();
-//    	System.out.println(">>>>> 🔴🔴🔴🔴🔴" + listOfFoundProblems.size());
-//    	System.out.println(">>>>> 🔴🔴🔴🔴🔴" + setOfProblems.size());
+
     	/*******************************************************************************/
     	Contests contest = new Contests();
         contest.setContest_description(contestDTO.getContest_description());
         contest.setContest_date(contestDTO.getContest_date());
         contest.setContest_link(contestDTO.getContest_link());
         contest.setStatus(contestDTO.getStatus());
+       
         Set<Integer> inputProblems = contestDTO.getContestProblems();
         /*******************************************************************************/
+        
         Set<ContestProblem> matchingProblems = contestProblemRepository.findByContestProblemIds(inputProblems);
+        
         if (matchingProblems.size() != inputProblems.size()) 
         {
             Set<Integer> foundProblemIds = matchingProblems.stream()
@@ -71,7 +72,6 @@ public class ContestController
         }
         else
         {
-        	System.out.println(">>>>> 🔴🔴🔴🔴🔴" + inputProblems);
         	contest.setContestProblems(matchingProblems);
         	contestRepository.save(contest);
         	return ResponseEntity.status(HttpStatus.CREATED).body(modelMapper.map(contest, ContestDTO.class));

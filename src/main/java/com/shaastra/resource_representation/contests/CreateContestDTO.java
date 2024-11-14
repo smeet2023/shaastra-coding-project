@@ -6,6 +6,7 @@ import java.util.TreeSet;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -28,6 +29,6 @@ public class CreateContestDTO
 	@NotBlank(message = " ❗⛔⚠ contest-description cannot be empty ")
 	private String contest_description; // this could a part of an html page
 	
-	@NotBlank(message = " ❗⛔⚠ contest-problems cannot be empty ")
+	@NotEmpty(message = " ❗⛔⚠ contest-problems cannot be empty ")
 	private TreeSet<Integer> contestProblems;
 }

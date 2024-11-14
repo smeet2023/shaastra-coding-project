@@ -26,6 +26,7 @@ import com.shaastra.resource_representation.contests.ContestDTO;
 import com.shaastra.resource_representation.contests.CreateContestDTO;
 
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/api/shaastra/contests")
@@ -45,7 +46,7 @@ public class ContestController
     }
 
     @PostMapping("/create-contest")
-    public ResponseEntity<ContestDTO> createContest(@RequestBody CreateContestDTO contestDTO) 
+    public ResponseEntity<ContestDTO> createContest(@Valid @RequestBody CreateContestDTO contestDTO) 
     {
 
     	/*******************************************************************************/

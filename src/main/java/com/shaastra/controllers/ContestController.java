@@ -84,40 +84,6 @@ public class ContestController
         }
     }
 
-//    @PutMapping("/{id}")
-//    public ResponseEntity<UpdateContestDTO> updateContest(@PathVariable Integer id, @RequestBody UpdateContestDTO updateContestDTO) {
-//        Optional<Contests> optionalContest = contestRepository.findById(id);
-//
-//        if (optionalContest.isPresent()) {
-//            Contests contest = optionalContest.get();
-//
-//            // Check and update fields conditionally
-//            if (updateContestDTO.getStatus() != null) {
-//                contest.setStatus(updateContestDTO.getStatus());
-//            }
-//
-//            if (updateContestDTO.getContest_description() != null) {
-//                contest.setContest_description(updateContestDTO.getContest_description());
-//            }
-//
-//            if (updateContestDTO.getContest_date() != null) {
-//                contest.setContest_date(updateContestDTO.getContest_date());
-//            }
-//
-//            if (updateContestDTO.getContest_link() != null) {
-//                contest.setContest_link(updateContestDTO.getContest_link());
-//            }
-//
-//            // Save the updated contest entity
-//            Contests updatedContest = contestRepository.save(contest);
-//
-//            // Map back the updated entity to DTO
-//            return ResponseEntity.ok(modelMapper.map(updatedContest, UpdateContestDTO.class));
-//        } else {
-//            // Throw a custom exception if the contest is not found
-//            throw new ContestNotFoundException("Contest with ID " + id + " not found");
-//        }
-//    }
     
     
     @PatchMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
@@ -204,8 +170,52 @@ public class ContestController
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteContest(@PathVariable Integer id) {
+    public ResponseEntity<Void> deleteContest(@PathVariable Integer id) 
+    {
+    	if (!contestRepository.existsById(id)) 
+    	{
+    		throw new ResourceNotFoundException("Contest with ID ▶" + id + "◀ does not exist.");
+    	}
+    	    
         contestRepository.deleteById(id);
         return ResponseEntity.noContent().build();
     }
 }
+
+
+
+
+//    @PutMapping("/{id}")
+//    public ResponseEntity<UpdateContestDTO> updateContest(@PathVariable Integer id, @RequestBody UpdateContestDTO updateContestDTO) {
+//        Optional<Contests> optionalContest = contestRepository.findById(id);
+//
+//        if (optionalContest.isPresent()) {
+//            Contests contest = optionalContest.get();
+//
+//            // Check and update fields conditionally
+//            if (updateContestDTO.getStatus() != null) {
+//                contest.setStatus(updateContestDTO.getStatus());
+//            }
+//
+//            if (updateContestDTO.getContest_description() != null) {
+//                contest.setContest_description(updateContestDTO.getContest_description());
+//            }
+//
+//            if (updateContestDTO.getContest_date() != null) {
+//                contest.setContest_date(updateContestDTO.getContest_date());
+//            }
+//
+//            if (updateContestDTO.getContest_link() != null) {
+//                contest.setContest_link(updateContestDTO.getContest_link());
+//            }
+//
+//            // Save the updated contest entity
+//            Contests updatedContest = contestRepository.save(contest);
+//
+//            // Map back the updated entity to DTO
+//            return ResponseEntity.ok(modelMapper.map(updatedContest, UpdateContestDTO.class));
+//        } else {
+//            // Throw a custom exception if the contest is not found
+//            throw new ContestNotFoundException("Contest with ID " + id + " not found");
+//        }
+//    }

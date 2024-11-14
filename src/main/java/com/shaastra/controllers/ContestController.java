@@ -1,15 +1,20 @@
 package com.shaastra.controllers;
 
+import java.lang.reflect.Field;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.util.ReflectionUtils;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -113,6 +118,68 @@ public class ContestController
 //            throw new ContestNotFoundException("Contest with ID " + id + " not found");
 //        }
 //    }
+    
+    
+    @PatchMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<CreateContestDTO> updateContestByFields(@PathVariable Integer id,
+                                                                  @RequestBody Map<String, Object> updates)
+    {
+        // Find the contest by id
+        Contests contest = contestRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Contest with the id : " + id + " could not be found !"));
+        
+        // Apply updates to the entity (Contests), not the DTO
+        updates.forEach((key, value) -> {
+        	if(key.equals("contestProblems")) 
+        	{
+        		// Safely convert value to a Set<Integer>
+                Set<Integer> inputProblemIds;
+                if (value instanceof List) {
+                    inputProblemIds = new HashSet<>((List<Integer>) value);
+                } else {
+                    inputProblemIds = (Set<Integer>) value;
+                }
+                
+                // Retrieve the corresponding ContestProblem entities
+                Set<ContestProblem> matchingProblems = contestProblemRepository.findByContestProblemIds(inputProblemIds);
+                
+                // Update the contest's contestProblems field with the retrieved entities
+                contest.setContestProblems(matchingProblems);
+                System.out.println("Contest problems updated successfully");
+                
+                
+        	}
+        	else {
+        		Field field = ReflectionUtils.findField(Contests.class, key);  // Look for the field in the entity class
+        		
+        		if (field != null) {
+        			field.setAccessible(true);
+        			ReflectionUtils.setField(field, contest, value);  // Set value to the entity class, not DTO
+        			System.out.println("Field updated successfully: " + key);
+        		}
+			}
+        });
+        
+        // Save the updated contest entity
+        contestRepository.saveAndFlush(contest);
+        
+        // Map the updated entity to DTO to return in the response
+        CreateContestDTO contestDTO = new CreateContestDTO();
+        contestDTO.setContest_date(contest.getContest_date());
+        contestDTO.setContest_description(contest.getContest_description());
+        contestDTO.setContest_link(contest.getContest_link());
+        Set<Integer> problemIds = contest.getContestProblems().stream()
+        	    .map(cp -> cp.getContest_problem_id())  // Extract contest_problem_id
+        	    .collect(Collectors.toSet());  // Collect into a Set
+
+        contestDTO.setContestProblems(problemIds);
+        		
+        contestDTO.setStatus(contest.getStatus());
+        contestDTO.setTotal_participants(contest.getTotal_participants());
+        // Return the updated DTO in the response
+        return ResponseEntity.ok(contestDTO);
+    }
+
 
     @GetMapping("/{id}")
     public ResponseEntity<ContestDTO> getContestById(@PathVariable Integer id) 

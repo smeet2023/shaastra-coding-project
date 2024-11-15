@@ -4,6 +4,7 @@ import java.lang.reflect.Field;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -17,16 +18,20 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.shaastra.entities.ContestParticipants;
 import com.shaastra.entities.ContestProblem;
 import com.shaastra.entities.Contests;
 import com.shaastra.exceptions.ApplicationException;
 import com.shaastra.exceptions.ResourceNotFoundException;
+import com.shaastra.repositories.ContestParticipantRepository;
 import com.shaastra.repositories.ContestProblemRepository;
 import com.shaastra.repositories.ContestRepository;
+import com.shaastra.resource_representation.contests.AddParticipantToContest;
 import com.shaastra.resource_representation.contests.ContestDTO;
 import com.shaastra.resource_representation.contests.CreateContestDTO;
 
@@ -42,9 +47,12 @@ public class ContestController
 
     private final ContestRepository contestRepository; // Inject ContestRepository directly
     private final ContestProblemRepository contestProblemRepository; // Inject ContestProblemRepository directly
+    private final ContestParticipantRepository contestParticipantRepository;
     private final ModelMapper modelMapper; // Inject ModelMapper for DTO conversion
 
-    public ContestController(ContestRepository contestRepository, ContestProblemRepository contestProblemRepository, ModelMapper modelMapper) {
+    public ContestController(ContestParticipantRepository contestParticipantRepository , ContestRepository contestRepository, ContestProblemRepository contestProblemRepository, ModelMapper modelMapper) 
+    {
+    	this.contestParticipantRepository = contestParticipantRepository;
         this.contestRepository = contestRepository;
         this.contestProblemRepository = contestProblemRepository;
         this.modelMapper = modelMapper;
@@ -146,7 +154,22 @@ public class ContestController
         return ResponseEntity.ok(contestDTO);
     }
 
-
+    
+    
+    @PutMapping("/{id}/add-participants")
+    public ResponseEntity<?> addParticipantToContest(@PathVariable Integer id , 
+    													@RequestBody AddParticipantToContest participants)
+    {
+    	Set<ContestParticipants> contestParticipants = contestParticipantRepository.findByContestParticipantsIdsAndNotInContest(participants.getStudentList(), id);
+    	
+    	Optional<Contests> contest = contestRepository.findById(id);
+    	
+    	contest.get().setParticipants(contestParticipants);
+    	contestRepository.save(contest.get());
+    	return ResponseEntity.ok(contest.get());
+    }
+    
+    
     @GetMapping("/{id}")
     public ResponseEntity<ContestDTO> getContestById(@PathVariable Integer id) 
     {

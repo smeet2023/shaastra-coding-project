@@ -1,11 +1,29 @@
 package com.shaastra.repositories;
 
+import java.util.Set;
+
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import com.shaastra.entities.ContestParticipants;
 
 @Repository
-public interface ContestParticipantRepository extends JpaRepository<ContestParticipants, Integer> {
-    // Additional query methods can be defined here
+public interface ContestParticipantRepository extends JpaRepository<ContestParticipants, Integer> 
+{
+	@Query(value = """
+		    SELECT * 
+		    FROM contest_participants cp 
+		    WHERE cp.participant_id IN :ids 
+		      AND NOT EXISTS (
+		          SELECT 1 
+		          FROM contest_contest_participant_join_table ccpj 
+		          WHERE ccpj.sh_id = cp.participant_id 
+		            AND ccpj.contest_id = :contestId
+		      )
+		""", nativeQuery = true)
+		Set<ContestParticipants> findByContestParticipantsIdsAndNotInContest(
+		    @Param("ids") Set<Integer> ids, 
+		    @Param("contestId") Integer contestId);
 }

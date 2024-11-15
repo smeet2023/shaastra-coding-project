@@ -8,6 +8,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.PrePersist;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -36,4 +37,13 @@ public class ContestResults
 	private Integer score;
 	
 	private Integer rank_in_this_contest;
+	
+	private String status; // result-invalid , result-confirmed , result-not-set 
+	 
+	@PrePersist
+	public void prePersist() {
+		if (status == null) {
+			status = "result-not-set";  // Set default value if not provided
+		}
+	}
 }

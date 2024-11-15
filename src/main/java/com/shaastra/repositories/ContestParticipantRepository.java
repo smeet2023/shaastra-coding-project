@@ -1,5 +1,6 @@
 package com.shaastra.repositories;
 
+import java.util.Optional;
 import java.util.Set;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -26,4 +27,16 @@ public interface ContestParticipantRepository extends JpaRepository<ContestParti
 		Set<ContestParticipants> findByContestParticipantsIdsAndNotInContest(
 		    @Param("ids") Set<Integer> ids, 
 		    @Param("contestId") Integer contestId);
+	
+	@Query(value = """
+		    SELECT 1
+		    FROM contest_contest_participant_join_table
+		    WHERE contest_id = :contestId
+		    AND sh_id = :participantId
+		""", nativeQuery = true)
+		Optional<Integer> findByContestParticipantsIdsAndInContest(
+		    @Param("contestId") Integer contestId, 
+		    @Param("participantId") Integer participantId);
+	
+	
 }

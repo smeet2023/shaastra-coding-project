@@ -25,12 +25,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.shaastra.entities.ContestParticipants;
 import com.shaastra.entities.ContestProblem;
+import com.shaastra.entities.ContestResults;
 import com.shaastra.entities.Contests;
 import com.shaastra.exceptions.ApplicationException;
 import com.shaastra.exceptions.ResourceNotFoundException;
 import com.shaastra.repositories.ContestParticipantRepository;
 import com.shaastra.repositories.ContestProblemRepository;
 import com.shaastra.repositories.ContestRepository;
+import com.shaastra.repositories.ContestResultRepository;
+import com.shaastra.resource_representation.contest_result.GetContestWiseScoreForParticularParticipant;
 import com.shaastra.resource_representation.contests.AddParticipantToContest;
 import com.shaastra.resource_representation.contests.ContestDTO;
 import com.shaastra.resource_representation.contests.CreateContestDTO;
@@ -48,12 +51,14 @@ public class ContestController
     private final ContestRepository contestRepository; // Inject ContestRepository directly
     private final ContestProblemRepository contestProblemRepository; // Inject ContestProblemRepository directly
     private final ContestParticipantRepository contestParticipantRepository;
+    private final ContestResultRepository contestResultRepository;
     private final ModelMapper modelMapper; // Inject ModelMapper for DTO conversion
-
-    public ContestController(ContestParticipantRepository contestParticipantRepository , ContestRepository contestRepository, ContestProblemRepository contestProblemRepository, ModelMapper modelMapper) 
+    
+    public ContestController(ContestResultRepository contestResultRepository , ContestParticipantRepository contestParticipantRepository , ContestRepository contestRepository, ContestProblemRepository contestProblemRepository, ModelMapper modelMapper) 
     {
     	this.contestParticipantRepository = contestParticipantRepository;
-        this.contestRepository = contestRepository;
+    	this.contestRepository = contestRepository;
+    	this.contestResultRepository = contestResultRepository;
         this.contestProblemRepository = contestProblemRepository;
         this.modelMapper = modelMapper;
     }
@@ -170,6 +175,26 @@ public class ContestController
     }
     
     
+    
+    @GetMapping("/{contestId}/participants/{participantId}/result")
+    public ResponseEntity<?> getContestWiseParticipantScore(@PathVariable Integer contestId , @PathVariable Integer participantId)
+    {
+    	Contests contests = contestRepository.findById(contestId).orElseThrow(() -> new ResourceNotFoundException("Contest with the id : " + contestId + " Not Found !"));
+    	ContestParticipants contestParticipant = contestParticipantRepository.findById(participantId).orElseThrow(() -> new ResourceNotFoundException("Contest Participant with the id : " + participantId + " Not Found !"));
+    	
+    	Optional<Integer> b = contestParticipantRepository.findByContestParticipantsIdsAndInContest(contests.getContest_id() , contestParticipant.getParticipant_id());
+    	
+    	if(b.isPresent())
+    	{
+    		Optional<ContestResults> contestResult = contestResultRepository.findByContestIdAndParticipantId(contestId , participantId);
+    		GetContestWiseScoreForParticularParticipant score = this.modelMapper.map(contestResult, GetContestWiseScoreForParticularParticipant.class);
+    		return ResponseEntity.ok(score);
+    	}
+    	else
+    		return ResponseEntity.badRequest().body("❗⛔⚠ Participant with id : " + participantId + " Is Not Registered In this Contest !");
+    }
+    
+    
     @GetMapping("/{id}")
     public ResponseEntity<ContestDTO> getContestById(@PathVariable Integer id) 
     {
@@ -191,7 +216,7 @@ public class ContestController
     		throw new ApplicationException("Failed to retrieve Students!", e);
 		}
     }
-
+    
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteContest(@PathVariable Integer id) 
     {

@@ -161,17 +161,26 @@ public class ContestController
 
     
     
-    @PutMapping("/{id}/add-participants")
+    @PostMapping("/{id}/add-participants")
     public ResponseEntity<?> addParticipantToContest(@PathVariable Integer id , 
     													@RequestBody AddParticipantToContest participants)
     {
     	Set<ContestParticipants> contestParticipants = contestParticipantRepository.findByContestParticipantsIdsAndNotInContest(participants.getStudentList(), id);
-    	
-    	Optional<Contests> contest = contestRepository.findById(id);
-    	
-    	contest.get().setParticipants(contestParticipants);
-    	contestRepository.save(contest.get());
-    	return ResponseEntity.ok(contest.get());
+    	if(contestParticipants.isEmpty())
+    	{
+    		return ResponseEntity.badRequest().body("Participant : " + participants.getStudentList() + " Already exists in this Contest");
+    	}
+    	else 
+    	{
+	    	Contests contest = contestRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Contest with id : " + id + " Not Found !"));
+	    	Set<ContestParticipants> existingParticipants = contest.getParticipants();
+	    	
+	    	existingParticipants.addAll(contestParticipants);
+	    	
+	    	contest.setParticipants(existingParticipants);
+	    	contestRepository.save(contest);
+	    	return ResponseEntity.ok(contest);
+    	}
     }
     
     

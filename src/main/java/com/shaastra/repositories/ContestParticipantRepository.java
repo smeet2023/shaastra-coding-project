@@ -9,6 +9,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import com.shaastra.entities.ContestParticipants;
+import com.shaastra.resource_representation.contest_participant.ContestParticipantDTO;
 
 @Repository
 public interface ContestParticipantRepository extends JpaRepository<ContestParticipants, Integer> 
@@ -39,4 +40,12 @@ public interface ContestParticipantRepository extends JpaRepository<ContestParti
 		    @Param("participantId") Integer participantId);
 	
 	
+//	@Query("""
+//		    SELECT new com.shaastra.resource_representation.contest_participant.ContestParticipantDTO(cp.participant_id, s.sh_id)
+//		    FROM ContestParticipants cp 
+//		    JOIN cp.student s 
+//		    WHERE s.sh_id = :shId
+//		""")
+//		Optional<ContestParticipantDTO> findByShId(@Param("shId") String shId);
+
 }

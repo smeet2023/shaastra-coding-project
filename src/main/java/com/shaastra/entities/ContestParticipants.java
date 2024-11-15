@@ -4,7 +4,6 @@ import java.util.HashSet;
 import java.util.Set;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.CascadeType;
@@ -32,9 +31,9 @@ public class ContestParticipants
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer participant_id;
 	
-	@OneToOne(fetch = FetchType.LAZY)
+	@OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "sh_id", referencedColumnName = "sh_id" , insertable = false, nullable = false)
-	@JsonIgnore
+//	@JsonIgnore
 	private Students student;
 
     @OneToMany(mappedBy = "contestParticipant", cascade = CascadeType.ALL, fetch = FetchType.LAZY)

@@ -1,3 +1,4 @@
+
 package com.shaastra.controllers;
 
 import java.util.List;
@@ -123,7 +124,7 @@ public class ContestParticipantController
 //    	}).collect(Collectors.toList());
 
 
-    @DeleteMapping("/{shId}")
+    @DeleteMapping("/{participantId}")
     public ResponseEntity<Void> deleteParticipant(@PathVariable Integer participantId) {
         ContestParticipants participant = contestParticipantRepository.findById(participantId)
             .orElseThrow(() -> new ResourceNotFoundException("Contest participant not found with ID: " + participantId));

@@ -12,5 +12,6 @@ import lombok.Setter;
 
 public class AddParticipantToContest 
 {
+	private Integer contest_id;
 	private Set<Integer> studentList;
 }

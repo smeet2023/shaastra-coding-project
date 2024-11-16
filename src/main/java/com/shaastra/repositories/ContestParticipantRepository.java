@@ -9,7 +9,6 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import com.shaastra.entities.ContestParticipants;
-import com.shaastra.resource_representation.contest_participant.ContestParticipantDTO;
 
 @Repository
 public interface ContestParticipantRepository extends JpaRepository<ContestParticipants, Integer> 
@@ -24,6 +23,7 @@ public interface ContestParticipantRepository extends JpaRepository<ContestParti
 		          WHERE ccpj.sh_id = cp.participant_id 
 		            AND ccpj.contest_id = :contestId
 		      )
+		        AND cp.participant_id IS NOT NULL
 		""", nativeQuery = true)
 		Set<ContestParticipants> findByContestParticipantsIdsAndNotInContest(
 		    @Param("ids") Set<Integer> ids, 

@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -160,26 +159,40 @@ public class ContestController
     }
 
     
+    @GetMapping("/{id}/preview-participants-to-add")
+    public ResponseEntity<?> previewParticpantsToAddToThisContest(@PathVariable Integer id)
+    {
+    	Set<Integer> set = contestParticipantRepository.findAll().stream().map(cp -> cp.getParticipant_id()).collect(Collectors.toSet());
+    	
+//    	/* speed comparison between java vs native way for above line*/
+    	
+    	Set<ContestParticipants> contestParticipants = contestParticipantRepository.findByContestParticipantsIdsAndNotInContest(set , id);
+    	
+    	return ResponseEntity.ok(contestParticipants);
+    }
     
     @PostMapping("/{id}/add-participants")
     public ResponseEntity<?> addParticipantToContest(@PathVariable Integer id , 
     													@RequestBody AddParticipantToContest participants)
     {
+    	Contests contest = contestRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Contest with id : " + id + " Not Found !"));
+
     	Set<ContestParticipants> contestParticipants = contestParticipantRepository.findByContestParticipantsIdsAndNotInContest(participants.getStudentList(), id);
+    	
     	if(contestParticipants.isEmpty())
     	{
     		return ResponseEntity.badRequest().body("Participant : " + participants.getStudentList() + " Already exists in this Contest");
     	}
     	else 
     	{
-	    	Contests contest = contestRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Contest with id : " + id + " Not Found !"));
 	    	Set<ContestParticipants> existingParticipants = contest.getParticipants();
 	    	
 	    	existingParticipants.addAll(contestParticipants);
 	    	
 	    	contest.setParticipants(existingParticipants);
 	    	contestRepository.save(contest);
-	    	return ResponseEntity.ok(contest);
+//	    	AddParticipantToContest response = existingParticipants.stream().map(ep -> ep.getParticipant_id()).collect(Collectors.toSet());
+	    	return ResponseEntity.ok(contest.getParticipants().stream().map(ps -> ps.getParticipant_id()));
     	}
     }
     

@@ -4,6 +4,7 @@ import java.time.OffsetDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.Column;
@@ -47,6 +48,7 @@ public class Contests
         inverseJoinColumns = @JoinColumn(name = "sh_id")
     )
 	@JsonManagedReference
+	@JsonIgnoreProperties({"contestResults" , "student" , "solvedProblems" , "contests"})
     private Set<ContestParticipants> participants = new HashSet<>();
 	
 	@ManyToMany

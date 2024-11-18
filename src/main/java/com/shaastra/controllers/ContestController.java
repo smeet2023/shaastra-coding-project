@@ -96,7 +96,20 @@ public class ContestController
         }
     }
 
-    
+    @GetMapping("/{id}/contest-problems")
+    public ResponseEntity<?> getContestProblemForThisContest(@PathVariable Integer id)
+    {
+    	Contests contest = contestRepository.findById(id)
+    			.orElseThrow(() -> new ResourceNotFoundException("Contest with the id : " + id + " could not be found !"));
+    	
+    	Set<ContestProblem> problems = contest.getContestProblems();
+    	if(!problems.isEmpty())
+    	{
+    		return ResponseEntity.ok(problems);
+    	}
+    	else
+    		return ResponseEntity.notFound().build();
+    }
     
     @PatchMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<CreateContestDTO> updateContestByFields(@PathVariable Integer id,

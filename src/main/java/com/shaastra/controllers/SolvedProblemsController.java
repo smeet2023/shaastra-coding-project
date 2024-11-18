@@ -1,7 +1,12 @@
 package com.shaastra.controllers;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
+import java.util.Set;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
@@ -12,9 +17,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.ResourceAccessException;
 
+import com.shaastra.entities.ContestParticipants;
+import com.shaastra.entities.ContestProblem;
+import com.shaastra.entities.Contests;
 import com.shaastra.entities.SolvedProblems;
 import com.shaastra.repositories.ContestParticipantRepository;
+import com.shaastra.repositories.ContestProblemRepository;
 import com.shaastra.repositories.ContestRepository;
 import com.shaastra.repositories.SolvedProblemsRepository;
 import com.shaastra.resource_representation.solved_problems.ContestSolvedProblemsDTO;
@@ -22,11 +32,11 @@ import com.shaastra.resource_representation.solved_problems.ParticipantContestsD
 import com.shaastra.resource_representation.solved_problems.SolvedProblemDTO;
 
 @RestController
-@RequestMapping("api/shaastra/contest")
+@RequestMapping("api/shaastra")
 
 public class SolvedProblemsController 
 {
-//	private ContestProblemRepository contestProblemRepository; 
+	private ContestProblemRepository contestProblemRepository; 
 	private SolvedProblemsRepository solvedProblemsRepository;
 	private ContestRepository contestRepository; 
 	private ContestParticipantRepository contestParticipantRepository; 
@@ -35,12 +45,14 @@ public class SolvedProblemsController
 	public SolvedProblemsController(SolvedProblemsRepository solvedProblemsRepository,
 									ContestRepository contestRepository, 
 									ContestParticipantRepository contestParticipantRepository,
+									ContestProblemRepository contestProblemRepository,
 									ModelMapper modelMapper)
 	{
-		this.modelMapper = modelMapper;
-		this.solvedProblemsRepository = solvedProblemsRepository;
-		this.contestRepository = contestRepository;
 		this.contestParticipantRepository = contestParticipantRepository;
+		this.contestProblemRepository = contestProblemRepository;
+		this.contestRepository = contestRepository;
+		this.solvedProblemsRepository = solvedProblemsRepository;
+		this.modelMapper = modelMapper;
 //		this.contestProblemRepository = contestProblemRepository;
 	}
 	
@@ -53,7 +65,6 @@ public class SolvedProblemsController
 	{
 	    // Fetch solved problems for the given participant
 	    List<SolvedProblems> solvedProblems = solvedProblemsRepository.findByContestParticipantIdGroupedByContest(participantId);
-
 	    // Group solved problems by contest ID
 	    Map<Integer, List<SolvedProblemDTO>> groupedByContest = solvedProblems.stream()
 	        .collect(Collectors.groupingBy(sp -> sp.getContest().getContest_id(), 
@@ -149,14 +160,58 @@ public class SolvedProblemsController
 	        new UpdateApiResponse<>("Problems solved by this participant were successfully saved", savedSolvedProblems));
 	}*/
 	@PostMapping("/{contestId}/participants/{participantId}/solved-problems")
-	public SolvedProblems singleParticipantSolvedProblemPost(
+	public ResponseEntity<?> singleParticipantSolvedProblemPost(
 			@PathVariable Integer contestId,
 			@PathVariable Integer participantId,
-			@RequestBody ParticipantContestsDTO singleParticipantPostData) 
+			@RequestBody ContestSolvedProblemsDTO contestSolvedProblemsDTO) 
 	{
-		SolvedProblems solvedProblems = this.modelMapper.map(singleParticipantPostData, SolvedProblems.class);
+//		Optional<Integer> 
+		Contests contest = contestRepository.findById(contestId).orElseThrow(() -> new ResourceAccessException("Contest with ID : " + contestId + " Does not EXISTS !"));
 		
-		return solvedProblems;
+		Optional<Integer> isParticipantInThisContest = this.contestParticipantRepository.findByContestParticipantsIdsAndInContest(contestId, participantId);
+		
+		if(isParticipantInThisContest.isPresent())
+		{
+			List<SolvedProblemDTO> problemsList = contestSolvedProblemsDTO.getListOfSolvedProblems();
+			Set<Integer> problemIdList = problemsList.stream().map(cp -> cp.getContest_problem_id()).collect(Collectors.toSet());
+			Set<Integer> checkIfContestHasProblemsOrProblemIdPassedIsCorrect = this.solvedProblemsRepository.isContestProblemsSetForThisContest(contestId, problemIdList);
+			
+			if(checkIfContestHasProblemsOrProblemIdPassedIsCorrect.isEmpty())
+			{
+				return ResponseEntity.badRequest().body("This Contest has not yet been assinged to any ContestProblems !");
+			}
+			else 
+			{
+				if(checkIfContestHasProblemsOrProblemIdPassedIsCorrect.size() < problemIdList.size())
+				{
+					List<Integer> invalidIds = problemIdList.stream()
+                            .filter(id -> !checkIfContestHasProblemsOrProblemIdPassedIsCorrect.contains(id))
+                            .toList();
+					Map<String, List<Integer>> result = new HashMap<>();
+				    result.put("valid", new ArrayList<>(checkIfContestHasProblemsOrProblemIdPassedIsCorrect));
+				    result.put("invalid", invalidIds);
+				    return ResponseEntity.badRequest().body("Invalid Problem ID's : " + result);
+				}
+				else
+				{
+					ContestParticipants cp = contestParticipantRepository.findById(participantId).orElseThrow(null);
+					SolvedProblems solvedProblems = new SolvedProblems();
+					solvedProblems.setContest(contest);
+					solvedProblems.setContestParticipant(cp);
+					
+					problemIdList.stream().map(pb -> contestProblemRepository.findById(pb)).collect();
+				}
+				
+			}
+		}
+		
+		
+		
+		
+		
+		
+		
+		return null;
 	}
 	/*@PostMapping("/{contestId}/participants/{participantId}/solved-problems")
 	public ResponseEntity<UpdateApiResponse<List<SolvedProblems>>> singleParticipantSolvedProblemPost(

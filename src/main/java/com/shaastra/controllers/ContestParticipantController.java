@@ -20,6 +20,7 @@ import com.shaastra.repositories.ContestParticipantRepository;
 import com.shaastra.repositories.ContestProblemRepository;
 import com.shaastra.repositories.ContestRepository;
 import com.shaastra.repositories.ContestResultRepository;
+import com.shaastra.repositories.SolvedProblemsRepository;
 import com.shaastra.resource_representation.contest_result.GetContestWiseScoreForParticularParticipant;
 
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -33,10 +34,13 @@ public class ContestParticipantController
 	 private final ContestProblemRepository contestProblemRepository; // Inject ContestProblemRepository directly
 	 private final ContestParticipantRepository contestParticipantRepository;
 	 private final ContestResultRepository contestResultRepository;
+	 private final SolvedProblemsRepository solvedProblemsRepository;
+	 
 	 private final ModelMapper modelMapper; // Inject ModelMapper for DTO conversion
 	 
-	 public ContestParticipantController(ContestResultRepository contestResultRepository , ContestParticipantRepository contestParticipantRepository , ContestRepository contestRepository, ContestProblemRepository contestProblemRepository, ModelMapper modelMapper) 
+	 public ContestParticipantController(SolvedProblemsRepository solvedProblemsRepository , ContestResultRepository contestResultRepository , ContestParticipantRepository contestParticipantRepository , ContestRepository contestRepository, ContestProblemRepository contestProblemRepository, ModelMapper modelMapper) 
 	 {
+		 this.solvedProblemsRepository = solvedProblemsRepository;
 		 this.contestParticipantRepository = contestParticipantRepository;
 		 this.contestRepository = contestRepository;
 		 this.contestResultRepository = contestResultRepository;
@@ -45,8 +49,14 @@ public class ContestParticipantController
   
 	 }
     
-    
-
+	 @GetMapping("/{id}/solved-problems")
+	 public ResponseEntity<?> getallsolvedproblemsforagiveparticpant(@PathVariable Integer id)
+	 {
+		 ContestParticipants contestParticipant = contestParticipantRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Participant with id : " + id + " Not Found !"));
+		 
+		 return null;
+	 }
+	 
 //    @PutMapping("/{shId}")
 //    public ResponseEntity<ContestParticipantUpdateDTO> updateParticipant(
 //        @PathVariable String shId,

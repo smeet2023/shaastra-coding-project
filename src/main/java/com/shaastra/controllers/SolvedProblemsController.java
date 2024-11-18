@@ -1,12 +1,10 @@
 package com.shaastra.controllers;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
@@ -159,60 +157,72 @@ public class SolvedProblemsController
 	    return ResponseEntity.ok(
 	        new UpdateApiResponse<>("Problems solved by this participant were successfully saved", savedSolvedProblems));
 	}*/
-	@PostMapping("/{contestId}/participants/{participantId}/solved-problems")
+	@PostMapping("contest/{contestId}/participants/{participantId}/solved-problems")
+	
 	public ResponseEntity<?> singleParticipantSolvedProblemPost(
-			@PathVariable Integer contestId,
-			@PathVariable Integer participantId,
-			@RequestBody ContestSolvedProblemsDTO contestSolvedProblemsDTO) 
-	{
-//		Optional<Integer> 
-		Contests contest = contestRepository.findById(contestId).orElseThrow(() -> new ResourceAccessException("Contest with ID : " + contestId + " Does not EXISTS !"));
-		
-		Optional<Integer> isParticipantInThisContest = this.contestParticipantRepository.findByContestParticipantsIdsAndInContest(contestId, participantId);
-		
-		if(isParticipantInThisContest.isPresent())
-		{
-			List<SolvedProblemDTO> problemsList = contestSolvedProblemsDTO.getListOfSolvedProblems();
-			Set<Integer> problemIdList = problemsList.stream().map(cp -> cp.getContest_problem_id()).collect(Collectors.toSet());
-			Set<Integer> checkIfContestHasProblemsOrProblemIdPassedIsCorrect = this.solvedProblemsRepository.isContestProblemsSetForThisContest(contestId, problemIdList);
-			
-			if(checkIfContestHasProblemsOrProblemIdPassedIsCorrect.isEmpty())
-			{
-				return ResponseEntity.badRequest().body("This Contest has not yet been assinged to any ContestProblems !");
-			}
-			else 
-			{
-				if(checkIfContestHasProblemsOrProblemIdPassedIsCorrect.size() < problemIdList.size())
-				{
-					List<Integer> invalidIds = problemIdList.stream()
-                            .filter(id -> !checkIfContestHasProblemsOrProblemIdPassedIsCorrect.contains(id))
-                            .toList();
-					Map<String, List<Integer>> result = new HashMap<>();
-				    result.put("valid", new ArrayList<>(checkIfContestHasProblemsOrProblemIdPassedIsCorrect));
-				    result.put("invalid", invalidIds);
-				    return ResponseEntity.badRequest().body("Invalid Problem ID's : " + result);
-				}
-				else
-				{
-					ContestParticipants cp = contestParticipantRepository.findById(participantId).orElseThrow(null);
-					SolvedProblems solvedProblems = new SolvedProblems();
-					solvedProblems.setContest(contest);
-					solvedProblems.setContestParticipant(cp);
-					
-					problemIdList.stream().map(pb -> contestProblemRepository.findById(pb)).collect();
-				}
-				
-			}
-		}
-		
-		
-		
-		
-		
-		
-		
-		return null;
+	        @PathVariable Integer contestId,
+	        @PathVariable Integer participantId,
+	        @RequestBody ContestSolvedProblemsDTO contestSolvedProblemsDTO) {
+	    
+		// Step 1: Validate contest existence
+	    Contests contest = contestRepository.findById(contestId)
+	            .orElseThrow(() -> new ResourceAccessException("Contest with ID: " + contestId + " does not exist!"));
+
+	    // Step 2: Validate participant existence in the contest
+	    Optional<Integer> isParticipantInThisContest = contestParticipantRepository.findByContestParticipantsIdsAndInContest(contestId, participantId);
+
+	    if (isParticipantInThisContest.isEmpty()) {
+	        return ResponseEntity.badRequest().body("Participant with ID: " + participantId + " is not part of Contest ID: " + contestId);
+	    }
+
+	    // Step 3: Extract and validate problem IDs
+	    List<SolvedProblemDTO> problemsList = contestSolvedProblemsDTO.getListOfSolvedProblems();
+	    Set<Integer> problemIdList = problemsList.stream()
+	            .map(SolvedProblemDTO::getContest_problem_id)
+	            .collect(Collectors.toSet());
+
+	    Set<Integer> validProblemIds = solvedProblemsRepository.isContestProblemsSetForThisContest(contestId, problemIdList);
+
+	    if (validProblemIds.isEmpty()) {
+	        return ResponseEntity.badRequest().body("This contest has no assigned problems!");
+	    }
+
+	    // Step 4: Identify invalid problem IDs
+	    List<Integer> invalidProblemIds = problemIdList.stream()
+	            .filter(id -> !validProblemIds.contains(id))
+	            .toList();
+
+	    if (!invalidProblemIds.isEmpty()) {
+	        Map<String, Object> result = new HashMap<>();
+	        result.put("valid", validProblemIds);
+	        result.put("invalid", invalidProblemIds);
+	        return ResponseEntity.badRequest().body("Invalid Problem IDs: " + result);
+	    }
+
+	    // Step 5: Save solved problems for valid IDs
+	    ContestParticipants participant = contestParticipantRepository.findById(participantId)
+	            .orElseThrow(() -> new ResourceAccessException("Participant with ID: " + participantId + " does not exist!"));
+
+	    List<SolvedProblems> solvedProblemsToSave = problemsList.stream()
+	            .filter(problem -> validProblemIds.contains(problem.getContest_problem_id()))
+	            .map(problem -> {
+	                ContestProblem contestProblem = contestProblemRepository.findById(problem.getContest_problem_id())
+	                        .orElseThrow(() -> new ResourceAccessException("Problem with ID: " + problem.getContest_problem_id() + " does not exist!"));
+
+	                SolvedProblems solvedProblem = new SolvedProblems();
+	                solvedProblem.setContest(contest);
+	                solvedProblem.setContestParticipant(participant);
+	                solvedProblem.setContestProblem(contestProblem);
+	                solvedProblem.setScore(problem.getScore());
+	                return solvedProblem;
+	            })
+	            .toList();
+
+	    solvedProblemsRepository.saveAll(solvedProblemsToSave);
+
+	    return ResponseEntity.ok("Solved problems saved successfully!");
 	}
+
 	/*@PostMapping("/{contestId}/participants/{participantId}/solved-problems")
 	public ResponseEntity<UpdateApiResponse<List<SolvedProblems>>> singleParticipantSolvedProblemPost(
 	    @PathVariable Integer contestId,

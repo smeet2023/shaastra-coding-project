@@ -26,4 +26,10 @@ public interface SolvedProblemsRepository extends JpaRepository<SolvedProblems, 
 
 	@Query(value ="SELECT contest_problem_id from contest_contest_problem_join_table where contest_id = :contestId and contest_problem_id in :ids " , nativeQuery = true)
 	 Set<Integer> isContestProblemsSetForThisContest(@Param("contestId") Integer contestId , @Param("ids") Set<Integer> ids);
+	
+	
+	@Query(value = "SELECT COUNT(*)	from solved_problems sp JOIN contest_participants cp ON sp.contest_participant_id = cp.participant_id JOIN students st ON cp.sh_id  st.sh_id WHERE sp.contest_id = :contestId AND st.batch = :batch" , nativeQuery = true)
+	Integer getSuccessfullSolvedProblems(@Param("contestId") Integer contestId , @Param("batch") String batch);
+	
+	
 }

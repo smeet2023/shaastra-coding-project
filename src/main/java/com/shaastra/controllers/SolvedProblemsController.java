@@ -175,4 +175,22 @@ public class SolvedProblemsController
 	    return ResponseEntity.ok("Solved problems saved successfully!");
 	}
 
+	
+	
+	
+	@GetMapping("/contest/completed-contest/{contestId}/batch/{batch}/solved-problems")
+	public ResponseEntity<?> getSuccessfullProblemSolvedInThisContest(@PathVariable Integer contestId , @PathVariable String batch)
+	{
+		Optional<Integer> value = contestRepository.isThisContestCompleted(contestId);
+		if(!value.isEmpty())
+		{
+			Integer count = solvedProblemsRepository.getSuccessfullSolvedProblems(contestId, batch);
+			return ResponseEntity.ok("TOTAL COUNT: " + count);
+		}
+		else
+			return ResponseEntity.badRequest().body("This Contest is'nt yet Completed , Results are yet to be published !");
+	}
+	
+	
+	
 }	

@@ -62,7 +62,7 @@ public class SolvedProblemsController
 	public ResponseEntity<ParticipantContestsDTO> getAllSolvedProblems(@PathVariable Integer participantId) 
 	{
 	    // Fetch solved problems for the given participant
-	    List<SolvedProblems> solvedProblems = solvedProblemsRepository.findByContestParticipantIdGroupedByContest(participantId);
+	    List<SolvedProblems> solvedProblems = solvedProblemsRepository.findByContestParticipantId(participantId);
 	    // Group solved problems by contest ID
 	    Map<Integer, List<SolvedProblemDTO>> groupedByContest = solvedProblems.stream()
 	        .collect(Collectors.groupingBy(sp -> sp.getContest().getContest_id(), 
@@ -100,63 +100,15 @@ public class SolvedProblemsController
 	/////////////////////////////////////////////////////////////////////////
 
 
-//	@GetMapping("/participants/{participantId}/older-V/solved-problems")
-//	public ResponseEntity<UpdateApiResponse<List<SolvedProblems>>> olderversionofgetAall(@PathVariable Integer participantId)
-//	{
-//		List<SolvedProblems> solvedProblems = solvedProblemsRepository.findByContestParticipantId(participantId);
-//		return ResponseEntity.ok(new UpdateApiResponse<>("" , solvedProblems));
-//	}
-//	
-	
-	/*@PostMapping("/{contestId}/participants/{participantId}/solved-problems")
-	public ResponseEntity<UpdateApiResponse<List<SolvedProblems>>> addSolvedProblems(
-	    @PathVariable Integer contestId,
-	    @PathVariable Integer participantId,
-	    @RequestBody List<SolvedProblems> solvedProblemsList) 
+	@GetMapping("contest/{contestId}/participants/{participantId}/solved-problems")
+	public ResponseEntity<?> getSolvedProblemsContestWise(
+										        @PathVariable Integer contestId,
+										        @PathVariable Integer participantId)
 	{
-	    Optional<ContestParticipants> participant = contestParticipantRepository.findById(participantId);
-	    
-	    if (!participant.isPresent()) 
-	    {
-	        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(
-	            new UpdateApiResponse<>("Participant with id : " + participantId + " doesn't exist", null));
-	    }
-
-	    Optional<Contests> contest = contestRepository.findById(contestId);
-	    if (!contest.isPresent()) 
-	    {
-	        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(
-	            new UpdateApiResponse<>("Contest with id : " + contestId + " doesn't exist", null));
-	    }
-
-	    if (participant.get().getContests().stream().noneMatch(cont -> cont.getContest_id().equals(contestId))) 
-	    {
-	        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(
-	            new UpdateApiResponse<>("Participant with id : " + participantId + " is not registered in this contest", null));
-	    }
-
-	    List<SolvedProblems> savedSolvedProblems = new ArrayList<>();
-
-	    for (SolvedProblems solvedProblem : solvedProblemsList) 
-	    {
-	        // Check if the problem is part of the contest
-	        if (contest.get().getContestProblems().stream()
-	                .noneMatch(prob -> prob.getContest_problem_id().equals(solvedProblem.getContestProblem().getContest_problem_id()))) {
-	            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(
-	                new UpdateApiResponse<>("Contest problem with id : " + solvedProblem.getContestProblem().getContest_problem_id() + " is not part of the contest", null));
-	        }
-
-	        // Set the relationships for SolvedProblem
-	        solvedProblem.setContestParticipant(participant.get());
-	        solvedProblem.setContest(contest.get());
-
-	        // Save each solved problem
-	        savedSolvedProblems.add(solvedProblemsRepository.save(solvedProblem));
-	    }
-
-	    return ResponseEntity.ok(
-	        new UpdateApiResponse<>("Problems solved by this participant were successfully saved", savedSolvedProblems));
-	}*/
+		List<SolvedProblems> list = solvedProblemsRepository.findByContestParticipantIdGroupedByContest(participantId, contestId);
+		return ResponseEntity.ok(list);	
+	}
+	
 	@PostMapping("contest/{contestId}/participants/{participantId}/solved-problems")
 	
 	public ResponseEntity<?> singleParticipantSolvedProblemPost(
@@ -223,59 +175,4 @@ public class SolvedProblemsController
 	    return ResponseEntity.ok("Solved problems saved successfully!");
 	}
 
-	/*@PostMapping("/{contestId}/participants/{participantId}/solved-problems")
-	public ResponseEntity<UpdateApiResponse<List<SolvedProblems>>> singleParticipantSolvedProblemPost(
-	    @PathVariable Integer contestId,
-	    @PathVariable Integer participantId,
-	    @RequestBody ParticipantContestsDTO singleParticipantPostData) 
-	{
-	    Optional<ContestParticipants> participant = contestParticipantRepository.findById(participantId);
-	    
-	    if (!participant.isPresent()) 
-	    {
-	        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(
-	            new UpdateApiResponse<>("Participant with id : " + participantId + " doesn't exist", null));
-	    }
-
-	    Optional<Contests> contest = contestRepository.findById(contestId);
-	    if (!contest.isPresent()) 
-	    {
-	        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(
-	            new UpdateApiResponse<>("Contest with id : " + contestId + " doesn't exist", null));
-	    }
-
-	    if (participant.get().getContests().stream().noneMatch(cont -> cont.getContest_id().equals(contestId))) 
-	    {
-	        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(
-	            new UpdateApiResponse<>("Participant with id : " + participantId + " is not registered in this contest", null));
-	    }
-
-//	    List<SolvedProblems> savedSolvedProblems = new ArrayList<>();
-
-//	    for (ParticipantContestsDTO solvedProblem : solvedProblemsList) 
-//	    {
-	    	SolvedProblems solvedProblems = new SolvedProblems();
-	    	solvedProblems.setContestParticipant(new ContestParticipants().setParticipant_id(participantId));
-	    	
-	    	ContestSolvedProblemsDTO contestSolvedProblemsDTO = new ContestSolvedProblemsDTO();
-	    	
-	    	solvedProblem.setContests(new ContestSolvedProblemsDTO().setContest_id(contestId));
-	        // Check if the problem is part of the contest
-	        if (contest.get().getContestProblems().stream()
-	                .noneMatch(prob -> prob.getContest_problem_id().equals(solvedProblem.getContestProblem().getContest_problem_id()))) {
-	            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(
-	                new UpdateApiResponse<>("Contest problem with id : " + solvedProblem.getContestProblem().getContest_problem_id() + " is not part of the contest", null));
-	        }
-
-	        // Set the relationships for SolvedProblem
-	        solvedProblem.setContestParticipant(participant.get());
-	        solvedProblem.setContest(contest.get());
-
-	        // Save each solved problem
-	        savedSolvedProblems.add(solvedProblemsRepository.save(solvedProblem));
-//	    }
-
-	    return ResponseEntity.ok(
-	        new UpdateApiResponse<>("Problems solved by this participant were successfully saved", null));
-	}*/
 }	

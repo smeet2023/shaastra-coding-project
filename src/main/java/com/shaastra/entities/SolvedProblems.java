@@ -2,6 +2,7 @@ package com.shaastra.entities;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -42,5 +43,8 @@ public class SolvedProblems
 	@Column(columnDefinition = "INT DEFAULT 0")
     private Integer score;
 
-	
+	@JsonProperty("contest_id")
+	public Integer getContestId() {
+	    return this.contest != null ? this.contest.getContest_id() : null;
+	}
 }

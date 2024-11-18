@@ -17,8 +17,9 @@ public interface SolvedProblemsRepository extends JpaRepository<SolvedProblems, 
 		    JOIN contests c ON sp.contest_id = c.contest_id
 		    WHERE sp.contest_participant_id = :participantId
 		    GROUP BY sp.contest_id, sp.sp_id, sp.score, sp.contest_problem_id, sp.contest_participant_id
+		    having sp.contest_id = :contestId
 		    """, nativeQuery = true)
-		List<SolvedProblems> findByContestParticipantIdGroupedByContest(@Param("participantId") Integer participantId);
+		List<SolvedProblems> findByContestParticipantIdGroupedByContest(@Param("participantId") Integer participantId , @Param("contestId") Integer contestId);
 
 	@Query(value = "SELECT * FROM solved_problems WHERE contest_participant_id = :contestParticipantId", nativeQuery = true)
 	List<SolvedProblems> findByContestParticipantId(@Param("contestParticipantId") Integer contestParticipantId);
